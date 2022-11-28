@@ -1,0 +1,50 @@
+﻿
+@{
+	ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+
+<div class="flex-box">
+	<div class="flex-box-child">
+		<div class="figure-img">
+			<h1 class="title">Candy Gourmet</h1>
+		</div>
+
+		<div class="facaLogin">
+			<div class="box-login">
+				<h1 class="message">Faça login na sua conta</h1>
+			</div>
+			<br/>
+			<form role="form">
+				<div class="userName">
+					<input class="form-control ls-login-bg-user input-lg" id="userLogin" type="text" aria-label="Usuário" placeholder="Usuário">
+				</div>
+
+				<br />
+				
+				<div class="UserPassword">
+					<input class="form-control ls-login-bg-password input-lg" id="userPassword" type="password" aria-label="Senha" placeholder="Senha">
+				</div>
+
+				<div class="forgot" action="">
+					<a href="#">Esqueci minha senha</a>
+				</div>
+				
+				<br/>
+ 
+				<br/>
+				
+				<button type="submit" class="btn btn-primary">Entrar</button>
+
+				<br/>
+
+				<p class="ls-login-signup">Não possui um usuário na DoceApp?</p>
+				
+				<br/>
+				
+				<a href="#">Cadastre-se agora</a>
+			</form>
+		</div>
+	</div>
+</div>
