@@ -13,6 +13,10 @@
     font-family: 'A';
 }
 
+.subtitle{
+    text-align:center;
+}
+
 .flex-box {
     display: flex;
     justify-content: center;
@@ -35,11 +39,22 @@
     text-align: center;
 }
 
-.flex-box-child btn-primary{
-    background-color: rosybrown;
-}
+ .flex-box-child button {
+        background-color: rosybrown;
+        border-color: antiquewhite;
+        width: 100%;
+ }
 
-.forgot{
+.forgot {
     width: 100%;
+    text-align: right;
+    
+}
+.create {
+    width: 100%;
+    text-align: right;
+   
+}
+.flex-box-child p {
     text-align: right;
 }

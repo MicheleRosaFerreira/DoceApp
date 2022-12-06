@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewData["Title"] = "Cadastrar";
+}
+<link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+
+<div class="flex-box">
+	<div class="flex-box-child">
+		<div class="figure-img">
+			<h1 class="title">Candy Gourmet</h1>
+		</div>
+		<div class="facaLogin">
+			<div class="box-login">
+				<h1 class="subtitle">Cadastro</h1>
+			</div>
+			<br/>
+			<form role="form">
+				<input class="form-control input-lg" type="text" aria-label="Nome" placeholder="Nome">
+				
+				<br/>
+
+				<input class="form-control input-lg" type="email" aria-label="Email" placeholder="ex: example@email.com.br">
+
+				<br />
+
+				<input class="form-control input-lg" type="text" aria-label="Usuário" placeholder="Usuário">
+				
+				<br />
+				
+				<input class="form-control input-lg" type="password" aria-label="Senha" placeholder="Senha">
+
+				<br/>
+				<br/>
+
+				<button type="submit" class="btn btn-primary" asp-action="RealizarCadastro">Cadastrar</button>
+				
+				<p class="link">
+					Já tem conta?
+					<a asp-action="Login"> Ir para Login </a>
+				</p>
+			</form>
+		</div>
+	</div>
+</div>  

@@ -1,4 +1,5 @@
-﻿using DoceApp.Models;
+﻿using DoceApp.Entidades;
+using DoceApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,18 +7,45 @@ namespace DoceApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+		const string SessionUser = "User";
+		const string SessionPassword = "Password";
 
-        public HomeController(ILogger<HomeController> logger)
+        public Login Usuario { get; set; }
+        public HomeController()
         {
-            _logger = logger;
+            Usuario = new Login("michele.ferreira", "abcd345", true);
         }
 
         public IActionResult Login()
         {
             return View();
         }
-        public IActionResult Privacy()
+      
+        public IActionResult RealizarLogin(LoginViewModel login)
+        {
+            if (login?.User != Usuario.User || login?.Password != Usuario.Password)
+            {
+                return View("Login", login);
+            }
+
+			HttpContext.Session.SetString("User", SessionUser);
+
+			return View("Home");
+        }        
+        
+
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+
+		//public IActionResult RealizarCadastro(CadastroViewModel cadastro)
+		//{
+  //          //terminar aqui
+		//	return View("Home");
+		//}
+
+		public IActionResult Privacy()
         {
             return View();
         }

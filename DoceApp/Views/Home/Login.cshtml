@@ -1,4 +1,5 @@
-﻿
+﻿@model DoceApp.Models.LoginViewModel
+
 @{
 	ViewData["Title"] = "Login";
 }
@@ -13,38 +14,34 @@
 
 		<div class="facaLogin">
 			<div class="box-login">
-				<h1 class="message">Faça login na sua conta</h1>
+				<h1 class="subtitle">Faça login na sua conta</h1>
 			</div>
 			<br/>
 			<form role="form">
-				<div class="userName">
-					<input class="form-control ls-login-bg-user input-lg" id="userLogin" type="text" aria-label="Usuário" placeholder="Usuário">
-				</div>
-
+				<input class="form-control input-lg" id="userLogin" type="text" aria-label="Usuário" placeholder="Usuário">
+				
 				<br />
 				
-				<div class="UserPassword">
-					<input class="form-control ls-login-bg-password input-lg" id="userPassword" type="password" aria-label="Senha" placeholder="Senha">
-				</div>
+				<input class="form-control input-lg" id="userPassword" type="password" aria-label="Senha" placeholder="Senha">
 
-				<div class="forgot" action="">
+				<div class="forgot">
 					<a href="#">Esqueci minha senha</a>
 				</div>
 				
 				<br/>
- 
 				<br/>
 				
-				<button type="submit" class="btn btn-primary">Entrar</button>
+				<button type="submit" class="btn btn-primary" asp-action="RealizarLogin">Entrar</button>
 
 				<br/>
-
-				<p class="ls-login-signup">Não possui um usuário na DoceApp?</p>
 				
-				<br/>
+				<p> Não possui um usuário na DoceApp?</p>
+				<div class="create">
+					<a asp-action="Cadastrar">Cadastre-se agora</a>
+				</div>
 				
-				<a href="#">Cadastre-se agora</a>
 			</form>
 		</div>
 	</div>
-</div>
+</div>  
+

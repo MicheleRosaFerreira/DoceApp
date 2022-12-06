@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fSK1H+7klkiPTbYcXHf9QHKNWlBmRBpBqjBLdFZHtDMEhP9V6FOS8g8OIemeqCOsyqXqbz5zRfhgbMy9snJreg==",
+  "dgSpecHash": "UgGu+Rvl9OAkVrWW2kzzxcIm/w0ABh/JuKJgWudVgRXSgpk35IWwLtOSWtFKbk7yQu/6BsutmEy8S8hObO9a8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\michele.ferreira\\source\\repos\\Meus Projetos,Scripts\\DoceApp\\DoceApp.Domain\\DoceApp.Domain.csproj",
+  "projectFilePath": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp.Domain\\DoceApp.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
