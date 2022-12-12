@@ -1,8 +1,22 @@
+using DoceApp.Context;
+using DoceApp.Interface;
+using DoceApp.Models.Entidades;
+using DoceApp.Repositório;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DoceAppContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DoceAppDatabase"));
+
+});
+builder.Services.AddScoped<ILogin,LoginRepository>();
+builder.Services.AddScoped<IPeople,PeopleRepository>();
+builder.Services.AddScoped<IConfectionery,ConfectioneryRepository>();
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
