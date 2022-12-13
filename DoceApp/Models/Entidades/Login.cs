@@ -16,6 +16,7 @@ namespace DoceApp.Models.Entidades
         public string User { get; private set; }
         [Required]
 		[DataType(DataType.Password)]
+		[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
 		public string Password { get; private set; }
         public bool Admin { get; private set; }
 		[DataType(DataType.DateTime)]

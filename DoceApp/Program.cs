@@ -1,6 +1,5 @@
 using DoceApp.Context;
 using DoceApp.Interface;
-using DoceApp.Models.Entidades;
 using DoceApp.Repositório;
 using Microsoft.EntityFrameworkCore;
 

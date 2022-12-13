@@ -16,28 +16,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Home/Cadastrar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWRhc3RyYXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Home/Head.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWFkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Home/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/User/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDYWRhc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/User/Head.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxIZWFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/User/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/_ViewImports.cshtml]

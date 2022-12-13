@@ -22,8 +22,7 @@ namespace DoceApp.Models.Entidades
 		public string Celphone { get; private set; }
         [Required]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; private set; }   
-
+        public string? Email { get; private set; }   
         public Login Login { get; private set; }
         public People(int id, string name, DateTime birthDate, string celphone, Login login)
         {

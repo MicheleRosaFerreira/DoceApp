@@ -19,7 +19,7 @@ namespace DoceApp.Repositório
 			return people;
 		}
 
-		public async Task<People> Delete(int Id)
+		public async Task<People?> Delete(int Id)
 		{
 			var peopleToDelete = await _doceAppContext.Peoples.FindAsync(Id);	
 			_doceAppContext.Peoples.Remove(peopleToDelete);	
