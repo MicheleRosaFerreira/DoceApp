@@ -8,25 +8,23 @@ namespace DoceApp.Models.Service
 {
 	public class UserService
 	{
-		private readonly PeopleRepository _peopleRepository;
-		public Login? Usuario { get; set; }
+		public readonly PeopleRepository _peopleRepository;
 		public UserService(PeopleRepository peopleRepository)
 		{
 			_peopleRepository = peopleRepository;
 		}
-		public string Mensagem(string mensagem)
+		public string Mensagem(string mensage)
 		{
-			return mensagem;
+			return mensage;
 		}
-
 		public async Task CreatePeople(People people)
 		{
-			var peopleCreate = await _peopleRepository.Create(people);
+			
 			if (people.Name.IsNullOrEmpty() && people.Email == string.Empty)
 				{
 					Mensagem("Campos de preenchimento obrigatório!");
 				}
-			return await peopleCreate;
+			await _peopleRepository.Create(people);
 		}
 	}
 }

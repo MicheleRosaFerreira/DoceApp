@@ -1,5 +1,6 @@
 ﻿using DoceApp.Models;
 using DoceApp.Models.Entidades;
+using DoceApp.Models.Service;
 using DoceApp.Repositório;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,17 +9,19 @@ namespace DoceApp.Controllers
 {
 	public class UserController : Controller
 	{
-		private readonly PeopleRepository _peopleRepository;
-		public UserController(PeopleRepository peopleRepository)
-		{
-			_peopleRepository = peopleRepository;
-		}
-		//public string Mensagem(string mensagem)
+		//public readonly UserService _userService;
+		//public UserController(UserService userService)
 		//{
-		//	return mensagem;
+		//	_userService = userService;
 		//}
+
+		public string Mensagem(string mensage)
+		{
+			return mensage;
+		}
 		public IActionResult Login()
 		{
+			
 			return View();
 		}
 
@@ -26,19 +29,12 @@ namespace DoceApp.Controllers
 		{
 			return View();
 		}
-
-		public IActionResult RealizarCadastro(People people)
-		{
-			if (people == null)
-			{
-				return BadRequest("Não foi possivel cadastrar esse Usuário!");
-			}
-			else 
-			{
-				return Ok("Usuario cadastrado com sucesso");
-			}
+		//[HttpPost]
+		//public IActionResult RealizarCadastro(People people)
+		//{
+				
 			
-	    }
+		//}
 
 		public IActionResult Privacy()
 		{
