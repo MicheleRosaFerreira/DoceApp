@@ -1,41 +1,63 @@
-﻿using DoceApp.Models;
+﻿//using DoceApp.Interface;
+using DoceApp.Models;
 using DoceApp.Models.Entidades;
-using DoceApp.Models.Service;
-using DoceApp.Repositório;
+//using DoceApp.Models.Service;
+//using DoceApp.Repositório;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
 namespace DoceApp.Controllers
 {
 	public class UserController : Controller
 	{
-		//public readonly UserService _userService;
-		//public UserController(UserService userService)
-		//{
-		//	_userService = userService;
-		//}
+		//private readonly ILogin _loginRepository;
 
-		public string Mensagem(string mensage)
-		{
-			return mensage;
-		}
+	
+		//public UserController(ILogin loginRepository)
+		//{
+		//	_loginRepository = loginRepository;
+		//}
+		//public string Mensage(string mensage)
+		//{
+		//	return mensage;
+		//}
 		public IActionResult Login()
 		{
-			
 			return View();
 		}
 
-		public IActionResult Cadastrar()
+		[HttpPost]
+		public IActionResult PostLogin(LoginViewModel login)
+		{
+		    var loginUser = new Login();
+			loginUser.User = "michele.ferreira";
+			loginUser.Password = "Michelerf0309@";
+			loginUser.AdminUser = true;
+
+			if (login?.UserName != loginUser.User || login?.Password != loginUser.Password) 
+			{
+				login = login != null ? login : new LoginViewModel();
+				login.ErrorType = "E";
+				return View("Login", login);
+			}
+			return RedirectToAction("Home", "HomePage");
+		}
+		public IActionResult Register()
 		{
 			return View();
 		}
-		//[HttpPost]
-		//public IActionResult RealizarCadastro(People people)
-		//{
-				
-			
-		//}
+		[HttpPost]
+		public IActionResult RegisterUser(People people)
+		{
+			var registerPeople = new People();
+			registerPeople.Name = "Michele Rosa Firmino Ferreira";
+			registerPeople.Email = "michele.ferreira@gmail.com";
+			registerPeople.Login.User = "michele.ferreira";
+			registerPeople.Login.Password = "Michelerf1504@";
+		}
 
+		}
 		public IActionResult Privacy()
 		{
 			return View();

@@ -5,7 +5,11 @@
 	Layout = "CleanLayout";
 }
 
-<link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+
+<link rel="stylesheet" href="~/css/Login.css" />
 
 <div class="flex-box">
 	<div class="flex-box-child">
@@ -18,13 +22,13 @@
 				<h1 class="subtitle">Faça login na sua conta</h1>
 			</div>
 			<br/>
-			<form asp-controller ="User" asp-action="RealizarLogin" method="post">
-				<input class="form-control input-lg" id="userLogin" asp-for="User" type="text" aria-label="Usuário" placeholder="Usuário">
-				
+			<form method="post"  asp-controller="User" asp-action="PostLogin">
+				<input class="form-control input-lg" asp-for="User" type="text" aria-label="Usuário" placeholder="Usuário">
+			
 				<br />
 				
-				<input class="form-control input-lg" id="userPassword" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha">
-
+				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha">
+			
 				<div class="forgot">
 					<a href="#">Esqueci minha senha</a>
 				</div>
@@ -32,17 +36,25 @@
 				<br/>
 				<br/>
 				
-				<button type="submit" class="btn btn-primary" asp-controller = "User" asp-action="RealizarLogin" asp-r>Entrar</button>
+				<button type="submit" class="btn btn-primary" >Entrar</button>
 																		
 				<br/> 
 				
 				<p> Não possui um usuário na DoceApp?</p>
 				<div class="create">
-					<a asp-action="Cadastrar">Cadastre-se agora</a>
+					<a asp-action="Register">Cadastre-se agora</a>
 				</div>
 				
 			</form>
 		</div>
 	</div>
-</div>  
+</div>
 
+<script>
+	var status = "@Model?.ErrorType";
+	console.log(status)
+
+	if(status == "E"){
+		toastr["error"]("senha ou usuário incorretos", "Error");
+	}
+</script>

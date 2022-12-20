@@ -8,24 +8,31 @@ using System.Threading.Tasks;
 
 namespace DoceApp.Models.Entidades
 {
-    [Table("Login")]
+    //[Table("Logar")]
     public class Login
     {
-        [Required]
-        [DataType(DataType.Text)]
-        public string User { get; private set; }
-        [Required]
-		[DataType(DataType.Password)]
-		[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
-		public string Password { get; private set; }
-        public bool Admin { get; private set; }
-		[DataType(DataType.DateTime)]
-		public DateTime dataHora { get; }
-        public Login(string user, string password, bool admin )
+        //[Required]
+        public string? User{ get;  set; }
+        //[Required]
+		//[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
+		public string? Password { get;  set; }
+        public bool? AdminUser { get;  set; }
+		public DateTime? dataHora { get; set; }
+
+        public string ErrorType { get; set; }
+
+
+        public Login()
         {
-            User = user;
-            Password = password;
-            Admin = admin;
+            ErrorType = "A";
         }
+
+        //public Login(string user, string password, bool typeUser)
+        //{
+        //    User= user;
+        //    Password= password;
+        //    AdminUser = typeUser;
+        //    dataHora= DateTime.Now;
+        //}
     }
 }
