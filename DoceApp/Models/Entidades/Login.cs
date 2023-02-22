@@ -17,7 +17,6 @@ namespace DoceApp.Models.Entidades
         //[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
         public string? Password { get; set; }
         public bool? AdminUser { get; set; }
-        public DateTime? dataHora { get; set; }
         public string ErrorType { get; set; }
         public Login()
         {

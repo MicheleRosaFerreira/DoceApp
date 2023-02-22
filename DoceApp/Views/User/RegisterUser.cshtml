@@ -1,4 +1,4 @@
-﻿@model DoceApp.Models.PeopleViewModel;
+﻿@model DoceApp.Models.RegisterViewModel;
 @{
 	ViewData["Title"] = "Register";
 	Layout = "CleanLayout";
@@ -20,7 +20,7 @@
 				<h1 class="subtitle">Cadastro</h1>
 			</div>
 			<br/>
-			<form role="form">
+			<form method="post" asp-controller="User" asp-action="Register">
 				<input class="form-control input-lg" type="text" aria-label="Nome" placeholder="Nome">
 				
 				<br/>

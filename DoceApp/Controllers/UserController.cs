@@ -30,7 +30,6 @@ namespace DoceApp.Controllers
 		}
 
 		[HttpPost]
-		[Route("/Login")]
 		public IActionResult PostLogin(LoginViewModel login)
 		{
             var loginUser = new Login();
@@ -51,13 +50,13 @@ namespace DoceApp.Controllers
 			return View();
 		}
 		[HttpPost]
-		public IActionResult Register(PeopleViewModel peopleViewModel)
+		public IActionResult Register(RegisterViewModel registerViewModel)
 		{
-			var registerPeople = new People();
+			var registerPeople = new RegisterPeople();
 			registerPeople.Name = string.Empty;
 			registerPeople.Email = string.Empty;
-			registerPeople.Login.User = string.Empty;
-			registerPeople.Login.Password = string.Empty;
+			registerPeople.User = "michele.ferreira";
+			registerPeople.Password = string.Empty;
 			registerPeople.ConfirmPassword = string.Empty;
 
 			/*REGEX VALIDAÇÃO NOME:
@@ -66,15 +65,13 @@ namespace DoceApp.Controllers
             °ÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ: vogais acentuadas do português, cedilha e umas outras de lambuja, maiúsculas .
 			°espaços.
 			*/
-			if (peopleViewModel.UserName.IsNullOrEmpty())
+			if (registerViewModel.User.IsNullOrEmpty())
 			{
-				peopleViewModel.ErrorType = "J";
-				return View("RegisterUser", peopleViewModel);
+				registerViewModel = registerViewModel != null ? registerViewModel : new RegisterViewModel();
+				registerViewModel.ErrorType = "J";
+				return View("RegisterUser", registerViewModel);
 			}
-
 			return RedirectToAction("Login","Login");
-
-
 		}
 
 		public IActionResult Privacy()
