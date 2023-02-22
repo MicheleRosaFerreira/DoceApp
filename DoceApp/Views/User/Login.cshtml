@@ -1,4 +1,4 @@
-﻿@model DoceApp.Models.Entidades.Login
+﻿@model DoceApp.Models.LoginViewModel
 
 @{
 	ViewData["Title"] = "Login";
@@ -6,8 +6,6 @@
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
 
 <link rel="stylesheet" href="~/css/Login.css" />
 
@@ -16,12 +14,9 @@
 		<div class="figure-img">
 			<h1 class="title">Candy Gourmet</h1>
 		</div>
-
+		
 		<div class="facaLogin">
-			<div class="box-login">
-				<h1 class="subtitle">Faça login na sua conta</h1>
-			</div>
-			<br/>
+			
 			<form method="post"  asp-controller="User" asp-action="PostLogin">
 				<input class="form-control input-lg" asp-for="User" type="text" aria-label="Usuário" placeholder="Usuário">
 			
@@ -34,7 +29,6 @@
 				</div>
 				
 				<br/>
-				<br/>
 				
 				<button type="submit" class="btn btn-primary" >Entrar</button>
 																		
@@ -42,7 +36,7 @@
 				
 				<p> Não possui um usuário na DoceApp?</p>
 				<div class="create">
-					<a asp-action="Register">Cadastre-se agora</a>
+					<a asp-action="RegisterUser">Cadastre-se agora</a>
 				</div>
 				
 			</form>
@@ -54,7 +48,7 @@
 	var status = "@Model?.ErrorType";
 	console.log(status)
 
-	if(status == "E"){
-		toastr["error"]("senha ou usuário incorretos", "Error");
+	if(status == "A"){
+		CallToastr("error","Falha ao realizar login","Usuário ou senha incorretos!")
 	}
 </script>

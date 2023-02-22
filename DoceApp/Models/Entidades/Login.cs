@@ -12,27 +12,16 @@ namespace DoceApp.Models.Entidades
     public class Login
     {
         //[Required]
-        public string? User{ get;  set; }
+        public string? User { get; set; }
         //[Required]
-		//[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
-		public string? Password { get;  set; }
-        public bool? AdminUser { get;  set; }
-		public DateTime? dataHora { get; set; }
-
+        //[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
+        public string? Password { get; set; }
+        public bool? AdminUser { get; set; }
+        public DateTime? dataHora { get; set; }
         public string ErrorType { get; set; }
-
-
         public Login()
         {
             ErrorType = "A";
         }
-
-        //public Login(string user, string password, bool typeUser)
-        //{
-        //    User= user;
-        //    Password= password;
-        //    AdminUser = typeUser;
-        //    dataHora= DateTime.Now;
-        //}
     }
 }

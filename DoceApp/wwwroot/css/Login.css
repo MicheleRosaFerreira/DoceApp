@@ -9,12 +9,12 @@
     color: brown;
     font-weight: bold;
     text-align: center;
-    font-size: 50px;
+    font-size: 45px;
     font-family: 'A';
 }
 
-.subtitle{
-    text-align:center;
+.subtitle {
+    text-align: center;
 }
 
 .flex-box {

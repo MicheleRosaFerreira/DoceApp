@@ -1,7 +1,13 @@
-﻿@model DoceApp.Models.Entidades.People
+﻿@model DoceApp.Models.PeopleViewModel;
 @{
-	ViewData["Title"] = "Cadastrar";
+	ViewData["Title"] = "Register";
+	Layout = "CleanLayout";
 }
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
 
 <div class="flex-box">
@@ -36,7 +42,8 @@
 				<br/>
 				<br/>
 
-				<button type="submit" class="btn btn-primary" asp-action="RegisterUser"> Cadastrar</button>
+
+				<button type="submit" class="btn btn-primary" > Cadastrar</button>
 				
 				<p class="link">
 					Já tem conta?
@@ -46,3 +53,20 @@
 		</div>
 	</div>
 </div>  
+<script>
+	var status = "@Model?.ErrorType";
+	console.log(status)
+	if (status == "J") {
+		CallToastr("error", "Falha ao realizar cadastro", "O campo usuário é obrigatório!")
+	}
+
+	if (status == "P") {
+		CallToastr("error", "Falha ao realizar cadastro", "Usuário já cadastrado!")
+	}
+    if (status == "D") {
+			CallToastr("error", "Falha ao realizar cadastro", "As senhas são diferentes!")
+	}
+    if (status == "C") {
+           CallToastr("error", "Falha ao realizar cadastro", "As senhas são diferentes!")
+	}
+</script>
