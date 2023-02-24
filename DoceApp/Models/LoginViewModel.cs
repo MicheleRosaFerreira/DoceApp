@@ -1,10 +1,13 @@
-﻿namespace DoceApp.Models
+﻿using DoceApp.Models.Entidades;
+
+namespace DoceApp.Models
 {
 	public class LoginViewModel
 	{
-
-        public string User { get; set; }
+		//[Required]
+		//[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
+		public string User { get; set; }
         public string Password { get; set; }
-        public string ErrorType { get; internal set; }
+        public ToastrMessage ReturnMessage { get; set; }
     }
 }

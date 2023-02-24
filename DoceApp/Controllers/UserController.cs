@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
+using System.IO;
 using System.Linq.Expressions;
 
 namespace DoceApp.Controllers
@@ -24,54 +25,65 @@ namespace DoceApp.Controllers
 		//{
 		//	return mensage;
 		//}
+	
 		public IActionResult Login()
 		{
 			return View();
 		}
-
-		[HttpPost]
-		public IActionResult PostLogin(LoginViewModel login)
-		{
-            var loginUser = new Login();
-            loginUser.User = "michele.ferreira";
-            loginUser.Password = "Michelerf0309@";
-            loginUser.AdminUser = true;
-
-            if (login?.User != loginUser.User || login?.Password != loginUser.Password)
-            {
-                login = login != null ? login : new LoginViewModel();
-                login.ErrorType = "A";
-                return View("Login", login);
-            }
-            return RedirectToAction("Home", "HomePage");
-        }
-        public IActionResult RegisterUser()
+		public IActionResult RegisterUser()
 		{
 			return View();
 		}
-		[HttpPost]
-		public IActionResult Register(RegisterViewModel registerViewModel)
-		{
-			var registerPeople = new RegisterPeople();
-			registerPeople.Name = string.Empty;
-			registerPeople.Email = string.Empty;
-			registerPeople.User = "michele.ferreira";
-			registerPeople.Password = string.Empty;
-			registerPeople.ConfirmPassword = string.Empty;
 
-			/*REGEX VALIDAÇÃO NOME:
-			°A-Za-z: maiúsculas e minúsculas sem acento.
-			°áàâãéèêíïóôõöúçñ: vogais acentuadas do português, cedilha e umas outras de lambuja, minúsculas.
-            °ÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ: vogais acentuadas do português, cedilha e umas outras de lambuja, maiúsculas .
-			°espaços.
-			*/
-			if (registerViewModel.User.IsNullOrEmpty())
+		public static List<Login> registredUsers = new List<Login>()
+		{
+			new Login()
 			{
-				registerViewModel = registerViewModel != null ? registerViewModel : new RegisterViewModel();
-				registerViewModel.ErrorType = "J";
-				return View("RegisterUser", registerViewModel);
+				Nickname = "michele.ferreira",
+				Password = "Michelerf0309@",
+				AdminUser = true
 			}
-			return RedirectToAction("Login","Login");
+		};
+	
+		[HttpPost]
+		public IActionResult PostLogin(LoginViewModel login)
+		{
+			var verify = registredUsers.FirstOrDefault(r => r.Nickname == login.User && r.Password == login.Password);
+
+			if (verify == null)
+			{
+				login.ReturnMessage = new ToastrMessage("error", "Falha ao realizar login", "Senha ou usuário incorretos!");
+
+				return View("Login", login);
+			}
+
+			return RedirectToAction("Home", "HomePage");
+		}
+
+		[HttpPost]
+		public IActionResult Register(RegisterViewModel register)
+		{
+			var verifyUser = registredUsers.FirstOrDefault(u => u.Nickname == register.Nickname);
+
+			if (verifyUser != null)
+			{
+				register.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro", "Usuário já cadastrado!");
+				
+				return View("RegisterUser", register);
+			}
+
+			if(string.IsNullOrEmpty(register.Nickname))
+			{
+				register.ReturnMessage = new ToastrMessage("error","Falha ao realizar cadastro", "O campo usuário é obrigatório.");
+				return View("RegisterUser", register);
+			}
+			if (string.IsNullOrEmpty(register.Name))
+			{
+				register.ReturnMessage = new ToastrMessage("error", " ", "Campo nome é obrigatório!");
+				return View("RegisterUser", register);
+			}
+				register.ReturnMessage = new ToastrMessage("success"," ","Usuário Cadastrado com sucesso!");
+				return View("RegisterUser", register);
 		}
 
 		public IActionResult Privacy()

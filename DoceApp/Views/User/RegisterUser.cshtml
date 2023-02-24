@@ -1,13 +1,15 @@
 ﻿@model DoceApp.Models.RegisterViewModel;
 @{
-	ViewData["Title"] = "Register";
+	ViewData["Title"] = "RegisterUser";
 	Layout = "CleanLayout";
+
+	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
-
+*@
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
 
 <div class="flex-box">
@@ -21,23 +23,23 @@
 			</div>
 			<br/>
 			<form method="post" asp-controller="User" asp-action="Register">
-				<input class="form-control input-lg" type="text" aria-label="Nome" placeholder="Nome">
+				<input class="form-control input-lg" asp-for="Name" type="text" aria-label="Nome" placeholder="Nome">
 				
 				<br/>
 
-				<input class="form-control input-lg" type="email" aria-label="Email" placeholder="ex: example@email.com.br">
+				<input class="form-control input-lg" asp-for="Email" type="email" aria-label="Email" placeholder="ex: example@email.com.br">
 
 				<br />
 
-				<input class="form-control input-lg" type="text" aria-label="Usuário" placeholder="Usuário">
+				<input class="form-control input-lg" asp-for="Nickname" type="text" aria-label="Usuário" placeholder="Usuário">
 				
 				<br />
 				
-				<input class="form-control input-lg" type="password" aria-label="Senha" placeholder="Senha">
+				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha">
 				
 				<br/>
 				
-				<input class="form-control input-lg" type="password" aria-label="ConfirmarSenha" placeholder="Confirmar Senha">
+				@*<input class="form-control input-lg" asp-for="ConfirmPassword" type="password" aria-label="ConfirmarSenha" placeholder="Confirmar Senha">*@
 
 				<br/>
 				<br/>
@@ -53,20 +55,11 @@
 		</div>
 	</div>
 </div>  
-<script>
-	var status = "@Model?.ErrorType";
-	console.log(status)
-	if (status == "J") {
-		CallToastr("error", "Falha ao realizar cadastro", "O campo usuário é obrigatório!")
-	}
 
-	if (status == "P") {
-		CallToastr("error", "Falha ao realizar cadastro", "Usuário já cadastrado!")
-	}
-    if (status == "D") {
-			CallToastr("error", "Falha ao realizar cadastro", "As senhas são diferentes!")
-	}
-    if (status == "C") {
-           CallToastr("error", "Falha ao realizar cadastro", "As senhas são diferentes!")
+
+<script>
+
+		if ("@hasReturn" === "true") {
+		CallToastr("@Model?.ReturnMessage.Type", "@Model?.ReturnMessage.Title", "@Model?.ReturnMessage.Message")
 	}
 </script>

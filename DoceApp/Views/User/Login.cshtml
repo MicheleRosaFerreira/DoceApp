@@ -1,8 +1,9 @@
 ﻿@model DoceApp.Models.LoginViewModel
-
 @{
 	ViewData["Title"] = "Login";
 	Layout = "CleanLayout";
+
+	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -45,10 +46,7 @@
 </div>
 
 <script>
-	var status = "@Model?.ErrorType";
-	console.log(status)
-
-	if(status == "A"){
-		CallToastr("error","Falha ao realizar login","Usuário ou senha incorretos!")
+	if("@hasReturn" === "true"){
+		CallToastr("@Model?.ReturnMessage.Type", "@Model?.ReturnMessage.Title", "@Model?.ReturnMessage.Message")
 	}
 </script>
