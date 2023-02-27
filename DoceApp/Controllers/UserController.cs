@@ -71,6 +71,11 @@ namespace DoceApp.Controllers
 				
 				return View("RegisterUser", register);
 			}
+			if (register.Password != register.ConfirmPassword)
+			{
+				register.ReturnMessage = new ToastrMessage("error", " ", "As senhas são diferentes");
+				return View("RegisterUser", register);
+			}
 
 			if(string.IsNullOrEmpty(register.Nickname))
 			{

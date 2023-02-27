@@ -1,3 +1,3 @@
-﻿var CallToastr = function(type, title, message) {
+﻿let CallToastr = function(type, title, message) {
     toastr[type](message, title)
 }

@@ -4,6 +4,7 @@
 	Layout = "CleanLayout";
 
 	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
+	
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -35,11 +36,11 @@
 				
 				<br />
 				
-				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha">
+				<input class="form-control input-lg" asp-for="Password" type="password" placeholder="Senha" id="password" >
 				
 				<br/>
 				
-				@*<input class="form-control input-lg" asp-for="ConfirmPassword" type="password" aria-label="ConfirmarSenha" placeholder="Confirmar Senha">*@
+				<input class="form-control input-lg" asp-for="ConfirmPassword" type="password" placeholder="Confirmar Senha" id="confirm_password">
 
 				<br/>
 				<br/>
