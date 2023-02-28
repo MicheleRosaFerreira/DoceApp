@@ -6,7 +6,7 @@ namespace DoceApp.Models
 	{
 		//[Required]
 		//[RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\\1)){8,}$")]
-		public string User { get; set; }
+		public string Nickname { get; set; }
         public string Password { get; set; }
         public ToastrMessage ReturnMessage { get; set; }
     }

@@ -19,14 +19,14 @@
 		<div class="facaLogin">
 			
 			<form method="post"  asp-controller="User" asp-action="PostLogin">
-				<input class="form-control input-lg" asp-for="User" type="text" aria-label="Usuário" placeholder="Usuário">
+				<input class="form-control input-lg" asp-for="Nickname" type="text" aria-label="Usuário" placeholder="Usuário">
 			
 				<br />
 				
 				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha">
 			
 				<div class="forgot">
-					<a href="#">Esqueci minha senha</a>
+					<a asp-action="Email"> Esqueci minha senha </a>
 				</div>
 				
 				<br/>

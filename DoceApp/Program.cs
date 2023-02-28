@@ -1,13 +1,16 @@
 //using DoceApp.Context;
 //using DoceApp.Interface;
 //using DoceApp.Repositório;
+using DoceApp.Models.Entidades;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddMvc();
 //builder.Services.AddDbContext<DoceAppContext>(options =>
 //{
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("DoceAppDatabase"));
