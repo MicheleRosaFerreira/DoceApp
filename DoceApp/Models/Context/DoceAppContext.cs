@@ -1,33 +1,35 @@
-﻿//using DoceApp.Models.Entidades;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.EntityFrameworkCore;
-//using Microsoft.Extensions.Options;
+﻿using Dapper;
+using DoceApp.Models.Entidades;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Options;
 
-//namespace DoceApp.Context
-//{
-//	public class DoceAppContext : DbContext
-//	{
-//		public DoceAppContext() { }
-//		public DoceAppContext(DbContextOptions<DoceAppContext> options) : base(options) { }
-		 
-//		public DbSet<Login> Acess { get; set; }
-//		public DbSet<People> Peoples { get; set; }
-//		public DbSet<Confectionery> Confectioneries { get; set; }
-//		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//		{
-//			if(optionsBuilder.IsConfigured) 
-//			{ 
-//			optionsBuilder.UseSqlServer();
-//			}
-//		}
-//		protected override void OnModelCreating(ModelBuilder modelBuilder)
-//		{
-//			modelBuilder.Entity<People>()
-//		     .ToTable("People")
-//			 .Property(p => p.Id)
-//			 .HasColumnName("Id")
-//			 .HasDefaultValue(0)
-//			 .IsRequired();
-//		}
-//	}
-//}
+namespace DoceApp.Context
+{
+	//Faz o processo de conexão com o banco de dados
+	public class DoceAppContext 
+	{
+		private readonly string _connectionString;
+
+		public DoceAppContext()
+		{
+			SqlMapper.AddTypeMap(typeof(string), System.Data.DbType.AnsiString);
+		}
+		public SqlConnection GetDoceAppCOnnection()
+		{
+			var connection = new SqlConnection(_connectionString);
+			connection.Open();
+			return connection;
+		}
+
+		public string GetString()
+		{
+			return _connectionString;
+		}
+
+		public void Dispose()
+		{
+			GC.SuppressFinalize(this);
+		}
+	}
+}

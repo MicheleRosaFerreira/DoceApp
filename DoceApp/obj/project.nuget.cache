@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pp7d04owsPuyWJdAJrAmPZNmq9xZ5XUuVpr/D3HuY8QSFdDX8xw8SLxWfjRAVdyiDTjNyUUp2I4/khgJp8gcQA==",
+  "dgSpecHash": "b1tn7QbOUIho4PxzfpJFT3KBv1Fv8n87AXzTDJ1MvklRerX8lgPsG7uK1g7LcKxcaIyBKhIHFnjVzb5K4YgsdA==",
   "success": true,
   "projectFilePath": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\DoceApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\michele.ferreira\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\michele.ferreira\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\michele.ferreira\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\michele.ferreira\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\2.2.0\\microsoft.aspnetcore.cryptography.internal.2.2.0.nupkg.sha512",
     "C:\\Users\\michele.ferreira\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",
     "C:\\Users\\michele.ferreira\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.abstractions\\2.2.0\\microsoft.aspnetcore.dataprotection.abstractions.2.2.0.nupkg.sha512",

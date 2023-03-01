@@ -121,3 +121,4 @@ C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp\obj\Debug\
 C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp\obj\Debug\net6.0\DoceApp.pdb
 C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp\obj\Debug\net6.0\DoceApp.genruntimeconfig.cache
 C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp\obj\Debug\net6.0\ref\DoceApp.dll
+C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp\bin\Debug\net6.0\Dapper.dll

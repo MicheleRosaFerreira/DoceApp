@@ -1,30 +1,51 @@
-﻿//using DoceApp.Interface;
-//using DoceApp.Models.Entidades;
-//using DoceApp.Repositório;
-//using Microsoft.IdentityModel.Tokens;
-//using System.ComponentModel.DataAnnotations;
+﻿using DoceApp.Models.Entidades;
+using DoceApp.Models.Interfaces;
+using DoceApp.Repositório;
+using Microsoft.IdentityModel.Tokens;
+using System.ComponentModel.DataAnnotations;
 
-//namespace DoceApp.Models.Service
-//{
-//	public class UserService
-//	{
-//		public readonly PeopleRepository _peopleRepository;
-//		public UserService(PeopleRepository peopleRepository)
-//		{
-//			_peopleRepository = peopleRepository;
-//		}
-//		public string Mensagem(string mensage)
-//		{
-//			return mensage;
-//		}
-//		public async Task CreatePeople(People people)
-//		{
-			
-//			if (people.Name.IsNullOrEmpty() && people.Email == string.Empty)
-//				{
-//					Mensagem("Campos de preenchimento obrigatório!");
-//				}
-//			await _peopleRepository.Create(people);
-//		}
-//	}
-//}
+namespace DoceApp.Models.Service
+{
+	public class UserService :IUserService
+	{
+		private readonly IUserRepository _userRepository;
+		public UserService()
+		{
+			_userRepository = new UserRepository();
+		
+		}
+		
+		public Task<List<User>> GetAll()
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<User> Get(int Id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<User> Create(User user)
+		{
+			try
+			{
+				
+			}
+			catch (Exception ex)
+			{
+				throw new Exception();
+			}
+			throw new NotImplementedException();
+		}
+
+		public Task Update(User user)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<User> Delete(int Id)
+		{
+			throw new NotImplementedException();
+		}
+	}
+}
