@@ -1,4 +1,5 @@
 ﻿using DoceApp.Models.Entidades;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,11 @@ namespace DoceApp.Models.Interfaces
 {
     public interface IUserRepository
     {
-        Task<List<User>> GetAll();
-        Task<User> Get(int Id);
-        Task<User> Create(User user);
-        Task Update(User user);
-        Task<User> Delete(int Id);
+		ActionResult<List<User>> GetAll();
+		ActionResult<User> Get(int Id);
+		ActionResult<User> GetByCpf(string Cpf);
+		ActionResult<User> Create(User user);
+		ActionResult Update(User user);
+		ActionResult<User> Delete(int Id);
     }
 }

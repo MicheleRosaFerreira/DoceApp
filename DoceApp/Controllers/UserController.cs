@@ -1,6 +1,7 @@
 ﻿//using DoceApp.Interface;
 using DoceApp.Models;
 using DoceApp.Models.Entidades;
+using DoceApp.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 //using DoceApp.Models.Service;
@@ -15,19 +16,13 @@ namespace DoceApp.Controllers
 {
 	public class UserController : Controller
 	{
-		//private readonly ILogin _loginRepository;
+		private readonly ILoginService _loginService;
 
 
-		//public UserController(ILogin loginRepository)
-		//{
-		//	_loginRepository = loginRepository;
-		//}
-		//public string Mensage(string mensage)
-		//{
-		//	return mensage;
-		//}
-
-
+		public UserController(ILoginService loginService)
+		{
+			_loginService = loginService;
+		}
 		public IActionResult Login()
 		{
 			return View();
@@ -40,34 +35,28 @@ namespace DoceApp.Controllers
 		{
 			return View();
 		}
-
-
-		public static List<Login> registredUsers = new List<Login>()
+		[HttpPost]
+		public ActionResult PostLogin(LoginViewModel login)
 		{
-			new Login()
+			Login login = new Login();
+			if (ModelState.IsValid)
 			{
-				Nickname = "michele.ferreira",
-				Password = "Michelerf0309@",
-				AdminUser = true
+				_loginService.GetLogin();
+				_loginService.SaveChanges();
+				return RedirectToAction("Home", "HomePage");
 			}
-		};
 
-
-		public static List<User> UserEmail = new List<User>()
-		{
-			new User()
-			{
-				Email = "michele.ferreira@gamil.com",
-			}
-		};
+			return View(login);
+		}
 		[HttpPost]
 		public IActionResult PostLogin(LoginViewModel login)
 		{
-			var verify = registredUsers.FirstOrDefault(r => r.Nickname == login.Nickname && r.Password == login.Password);
+			//var verify = registredUsers.FirstOrDefault(r => r.Nickname == login.Nickname && r.Password == login.Password);
 
-			if (verify == null)
+			if (!ModelState.IsValid)
 			{
-				login.ReturnMessage = new ToastrMessage("error", "Falha ao realizar login", "Senha ou usuário incorretos!");
+				_loginService.
+				
 
 				return View("Login", login);
 			}
@@ -77,79 +66,46 @@ namespace DoceApp.Controllers
 
 		[HttpPost]
 		public IActionResult Register(RegisterViewModel register)
-		{  
-
-			//var verifyUser = registredUsers.FirstOrDefault(u => u.Nickname == register.Nickname);
-
-			//if (verifyUser != null)
-			//{
-			//	register.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro", "Usuário já cadastrado!");
-
-			//	return View("RegisterUser", register);
-			//}
-			if (string.IsNullOrEmpty(register.Password))
+		{
+			if (ModelState.IsValid)
 			{
-				register.ReturnMessage = new ToastrMessage("error", " ", "Favor preencher o campo senha");
-
-				return View("RegisterUser", register);
+				register.ReturnMessage = new ToastrMessage("success", " ", "Usuário Cadastrado com sucesso!");
+				return Ok();
 			}
-
 			if (register.Password != register.ConfirmPassword)
 			{
 				register.ReturnMessage = new ToastrMessage("error", " ", "As senhas são diferentes");
 			
 				return View("RegisterUser", register);
 			}
-
-			if (string.IsNullOrEmpty(register.Nickname))
-			{
-				register.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro", "O campo usuário é obrigatório.");
-				return View("RegisterUser", register);
-			}
-			if (string.IsNullOrEmpty(register.Name))
-			{
-				register.ReturnMessage = new ToastrMessage("error", " ", "Campo nome é obrigatório!");
-				return View("RegisterUser", register);
-			}
-			if (register.Email == null)
-			{
-				register.ReturnMessage = new ToastrMessage("error", " ", "Campo Email é obrigatório!");
-				return View("RegisterUser", register);
-			}
-
-
-
-
-
-
-			register.ReturnMessage = new ToastrMessage("success", " ", "Usuário Cadastrado com sucesso!");
+			register.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Tente novamente em alguns instantes.");
 			return View("RegisterUser", register);
 		}
 
 
-		[HttpPost]
-		public IActionResult MailMessage(EmailViewModel mail )
-		{
-			LoginViewModel login = new LoginViewModel();
-			var verifyMail = UserEmail.FirstOrDefault(e => e.Email == mail.Email);
+		//[HttpPost]
+		//public IActionResult MailMessage(EmailViewModel mail )
+		//{
+		//	LoginViewModel login = new LoginViewModel();
+		//	var verifyMail = UserEmail.FirstOrDefault(e => e.Email == mail.Email);
 
-			MailMessage mailMessage = new MailMessage($"{verifyMail.Email}", $"{verifyMail.Email}");
-			mailMessage.Subject = "Recuperação de Senha";
-			mailMessage.IsBodyHtml = true;
-			mailMessage.Body = "<p>\r\nOlá,\r\nHouve um pedido para alterar sua senha!\r\n\r\nSe você não fez esta solicitação, ignore este e-mail.\r\n\r\nCaso contrário, clique neste link para alterar sua senha: [link] </p>";
-			//caso meu textp ou assunto tenham algum tipo de caracter especial, o navegador irá reconhecer e transmitilos corretamente.
-			mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
-			mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
+		//	MailMessage mailMessage = new MailMessage($"{verifyMail.Email}", $"{verifyMail.Email}");
+		//	mailMessage.Subject = "Recuperação de Senha";
+		//	mailMessage.IsBodyHtml = true;
+		//	mailMessage.Body = "<p>\r\nOlá,\r\nHouve um pedido para alterar sua senha!\r\n\r\nSe você não fez esta solicitação, ignore este e-mail.\r\n\r\nCaso contrário, clique neste link para alterar sua senha: [link] </p>";
+		//	//caso meu textp ou assunto tenham algum tipo de caracter especial, o navegador irá reconhecer e transmitilos corretamente.
+		//	mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
+		//	mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
 			
-			SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-			smtpClient.UseDefaultCredentials = false;
-			smtpClient.Credentials = new NetworkCredential($"{verifyMail.Email}", " "); //email e senha do email que vamos usar como remetente
-			smtpClient.EnableSsl = true; // vai criptografar o trafego ele oferece segurança de comunicação ao usuario quando acessarem ambiente virtual.
-		    smtpClient.Send(mailMessage);
-			return View("Email", mail);
+		//	SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+		//	smtpClient.UseDefaultCredentials = false;
+		//	smtpClient.Credentials = new NetworkCredential($"{verifyMail.Email}", " "); //email e senha do email que vamos usar como remetente
+		//	smtpClient.EnableSsl = true; // vai criptografar o trafego ele oferece segurança de comunicação ao usuario quando acessarem ambiente virtual.
+		//    smtpClient.Send(mailMessage);
+		//	return View("Email", mail);
 
 
-		}
+		//}
 	}
 }
 

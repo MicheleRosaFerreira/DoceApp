@@ -47,5 +47,10 @@ namespace DoceApp.Models.Service
 		{
 			throw new NotImplementedException();
 		}
+
+		public Task<User> GetByCpf(string cpf)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
