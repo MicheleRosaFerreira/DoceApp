@@ -1,26 +1,27 @@
 //using DoceApp.Context;
 //using DoceApp.Interface;
 //using DoceApp.Repositório;
+using DoceApp.Interface;
 using DoceApp.Models.Entidades;
-using Microsoft.EntityFrameworkCore;
+using DoceApp.Models.Interfaces;
+using DoceApp.Models.Repositório;
+using DoceApp.Models.Service;
+using FluentAssertions.Common;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
-//builder.Services.AddDbContext<DoceAppContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DoceAppDatabase"));
-
-//});
-//builder.Services.AddScoped<ILogin, LoginRepository>();
+builder.Services.AddScoped<ILoginRepository>(s => new LoginRepository(s.GetRequiredService<IConfiguration>()));
+//builder.Services.AddScoped<ILoginService, LoginService>();
 //builder.Services.AddScoped<IPeople, PeopleRepository>();
 //builder.Services.AddScoped<IConfectionery, ConfectioneryRepository>();
 
 builder.Services.AddDistributedMemoryCache();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(10);

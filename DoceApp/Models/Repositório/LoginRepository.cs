@@ -1,33 +1,56 @@
 ﻿using Dapper;
-using DoceApp.Context;
 using DoceApp.Interface;
 using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
+using MySqlConnector;
 using System.Text;
 
 namespace DoceApp.Models.Repositório
 {
 	//Aqui faço o select no banco de dados 
-	public class LoginRepository : DoceAppContext, ILoginRepository
+	public class LoginRepository : ILoginRepository
 	{
-		public ActionResult<Login>GetLogin(int UserId)
+		private IConfiguration _configuration;
+		private string _conexao { get { return _configuration.GetConnectionString("DoceApp"); } }
+		public LoginRepository(IConfiguration configuration)
 		{
-			try
+			_configuration = configuration;
+		}
+		public ActionResult<Loginn> GetLogin(int UserId)
+		{
+			try 
 			{
-				var sqlStatement = new StringBuilder("SELECT * FROM [LOGIN]");
-				sqlStatement.AppendLine($"WHERE [USER_ID] = {UserId}");
-				var connection = GetDoceAppCOnnection();
-				var result = connection.Query<Login>(sqlStatement.ToString()).FirstOrDefault();
-				return result;
+				using (var conection = new MySqlConnection(_conexao))
+				{
+					var sqlStatement = new StringBuilder("SELECT * FROM [LOGIN]");
+					sqlStatement.AppendLine($"WHERE [USER_ID] = {UserId}");
+					var result = conection.QueryFirstOrDefault<Loginn>(sqlStatement.ToString());
+					return result;
+				}
 			}
 			catch (Exception)
 			{
 				throw new Exception("Usuario não encontrado");
 			}
-			finally
+		}
+		public ActionResult<Loginn> GetLoginNickname(string nickName)
+		{
+			try
 			{
-				Dispose();
+				using (var conection = new MySqlConnection(_conexao))
+				{
+					var sqlStatement = new StringBuilder("SELECT * FROM [LOGIN]");
+					sqlStatement.AppendLine($"WHERE [NICKNAME] = {nickName}");
+					var result = conection.QueryFirstOrDefault<Loginn>(sqlStatement.ToString());
+					return result;
+				}
+			}
+			catch (Exception)
+			{
+				throw new Exception("Usuário não encontrado");
 			}
 		}
 	}
 }
+	
+	

@@ -1,4 +1,4 @@
-﻿@model DoceApp.Models.LoginViewModel
+﻿@model DoceApp.Models.Entidades.Loginn;
 @{
 	ViewData["Title"] = "Login";
 	Layout = "CleanLayout";
@@ -18,7 +18,7 @@
 		
 		<div class="facaLogin">
 			
-			<form method="post"  asp-controller="User" asp-action="PostLogin">
+			<form method="post" asp-controller="User" asp-action ="GetLogin" >
 				<input class="form-control input-lg" asp-for="Nickname" type="text" aria-label="Usuário" placeholder="Usuário">
 			
 				<br />
@@ -26,18 +26,22 @@
 				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha">
 			
 				<div class="forgot">
-					<a asp-action="Email"> Esqueci minha senha </a>
+					<a href="@Url.Action("Email", "User")">Esqueci minha senha </a>
+
 				</div>
 				
 				<br/>
 				
-				<button type="submit" class="btn btn-primary" >Entrar</button>
+				<button type="submit" class="btn btn-primary" > Entrar</button>
+
 																		
 				<br/> 
-				
-				<p> Não possui um usuário na DoceApp?</p>
 				<div class="create">
-					<a asp-action="RegisterUser">Cadastre-se agora</a>
+				  
+					<p> Não possui um usuário na DoceApp?</p>
+					
+				  <a href="@Url.Action("RegisterUser", "User")" >Cadastre-se agora </a>
+				
 				</div>
 				
 			</form>

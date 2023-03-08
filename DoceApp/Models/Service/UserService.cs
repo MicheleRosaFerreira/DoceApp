@@ -1,7 +1,6 @@
 ﻿using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
-using DoceApp.Repositório;
-using Microsoft.IdentityModel.Tokens;
+using DoceApp.Models.Repositório;
 using System.ComponentModel.DataAnnotations;
 
 namespace DoceApp.Models.Service
@@ -11,7 +10,7 @@ namespace DoceApp.Models.Service
 		private readonly IUserRepository _userRepository;
 		public UserService()
 		{
-			_userRepository = new UserRepository();
+			//_userRepository = new UserRepository();
 		
 		}
 		

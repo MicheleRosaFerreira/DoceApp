@@ -49,21 +49,29 @@
               "target": "Package",
               "version": "[2.0.123, )"
             },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.10.0, )"
+            },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.2.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.0, )"
             },
             "Microsoft.SharePointOnline.CSOM": {
               "target": "Package",
               "version": "[16.1.23408.12000, )"
             },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "SendGrid": {
               "target": "Package",
               "version": "[9.28.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [

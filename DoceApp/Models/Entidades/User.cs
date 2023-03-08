@@ -24,7 +24,8 @@ namespace DoceApp.Models.Entidades
 		[DisplayName("Digite seu endereço de email.")]
 		[EmailAddress(ErrorMessage = "Endereço de email inválido.")]
 		public string Email  { get; set; }
-	
+		public ToastrMessage ReturnMessage { get; set; }
+
 	}
 }
  

@@ -1,4 +1,4 @@
-﻿@model DoceApp.Models.RegisterViewModel;
+﻿@model DoceApp.Models.Entidades.User;
 @{
 	ViewData["Title"] = "RegisterUser";
 	Layout = "CleanLayout";
@@ -55,7 +55,7 @@
 				
 				<p class="link">
 					Já tem conta?
-					<a asp-action="Login"> Ir para Login </a>
+					<a href="@Url.Action("Login", "User")">Ir para Login </a>
 				</p>
 			</form>
 		</div>
