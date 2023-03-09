@@ -1,8 +1,13 @@
-﻿using Dapper;
+﻿using Microsoft.AspNetCore;
+using Dapper;
 using DoceApp.Interface;
 using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.SharePoint.Client;
 using MySqlConnector;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace DoceApp.Models.Repositório
@@ -10,44 +15,32 @@ namespace DoceApp.Models.Repositório
 	//Aqui faço o select no banco de dados 
 	public class LoginRepository : ILoginRepository
 	{
-		private IConfiguration _configuration;
-		private string _conexao { get { return _configuration.GetConnectionString("DoceApp"); } }
+		private readonly string connectionstring;
 		public LoginRepository(IConfiguration configuration)
 		{
-			_configuration = configuration;
+			Configuration = configuration;
+			connectionstring = configuration.GetConnectionString("DoceApp");
 		}
+
+		public IConfiguration Configuration { get; } 
+
 		public ActionResult<Loginn> GetLogin(int UserId)
 		{
-			try 
+			string sql = ($"SELECT * FROM LOGIN WHERE [USER_ID] = {UserId}"); 
+
+			using (var con = new SqlConnection(connectionstring))
 			{
-				using (var conection = new MySqlConnection(_conexao))
-				{
-					var sqlStatement = new StringBuilder("SELECT * FROM [LOGIN]");
-					sqlStatement.AppendLine($"WHERE [USER_ID] = {UserId}");
-					var result = conection.QueryFirstOrDefault<Loginn>(sqlStatement.ToString());
-					return result;
-				}
-			}
-			catch (Exception)
-			{
-				throw new Exception("Usuario não encontrado");
+				return con.QueryFirstOrDefault<Loginn>(sql);
 			}
 		}
+
 		public ActionResult<Loginn> GetLoginNickname(string nickName)
 		{
-			try
+			string sql = ($"SELECT * FROM LOGIN WHERE [NICKNAME] = {nickName}");
+
+			using (var con = new SqlConnection(connectionstring))
 			{
-				using (var conection = new MySqlConnection(_conexao))
-				{
-					var sqlStatement = new StringBuilder("SELECT * FROM [LOGIN]");
-					sqlStatement.AppendLine($"WHERE [NICKNAME] = {nickName}");
-					var result = conection.QueryFirstOrDefault<Loginn>(sqlStatement.ToString());
-					return result;
-				}
-			}
-			catch (Exception)
-			{
-				throw new Exception("Usuário não encontrado");
+				return con.QueryFirstOrDefault<Loginn>(sql);
 			}
 		}
 	}

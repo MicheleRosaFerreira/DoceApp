@@ -1,12 +1,12 @@
-﻿@model DoceApp.Models.Entidades.Loginn;
+﻿@model DoceApp.Models.Entidades.Loginn
 @{
-	ViewData["Title"] = "Login";
+	ViewData["Title"] = "Signin";
 	Layout = "CleanLayout";
 
 	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
 }
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
 
 <link rel="stylesheet" href="~/css/Login.css" />
 
@@ -18,12 +18,12 @@
 		
 		<div class="facaLogin">
 			
-			<form method="post" asp-controller="User" asp-action ="GetLogin" >
-				<input class="form-control input-lg" asp-for="Nickname" type="text" aria-label="Usuário" placeholder="Usuário">
+			<form asp-action="GetLogin" method="post" asp-controller="User">
+				<input class="form-control input-lg" asp-for ="Nickname" type="text" aria-label="Usuário" placeholder="Usuário"/>
 			
 				<br />
 				
-				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha">
+				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha"/>
 			
 				<div class="forgot">
 					<a href="@Url.Action("Email", "User")">Esqueci minha senha </a>
@@ -32,7 +32,7 @@
 				
 				<br/>
 				
-				<button type="submit" class="btn btn-primary" > Entrar</button>
+				<button type="submit" class="btn btn-primary" > Entrar </button>
 
 																		
 				<br/> 

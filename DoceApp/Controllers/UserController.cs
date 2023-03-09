@@ -1,13 +1,7 @@
 ﻿using DoceApp.Interface;
 using DoceApp.Models;
 using DoceApp.Models.Entidades;
-using DoceApp.Models.Interfaces;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using SendGrid.Helpers.Mail;
-using System.Net;
-using System.Net.Mail;
 using System.Text;
 
 namespace DoceApp.Controllers
@@ -36,22 +30,26 @@ namespace DoceApp.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult GetLogin(Loginn login)
+		public  IActionResult GetLogin(Loginn login)
 		{
+			
 			if (ModelState.IsValid)
 			{
 				var verifyUser = _loginRepository.GetLoginNickname(login.Nickname);
+
 				if (verifyUser != null)
 				{
-				   return RedirectToAction("Home", "HomePage");
-
+					return Ok(verifyUser);
+				}
+				else
+				{
+					NoContent();
+					//return View("Login", login);
 				}
 			}
-				return View("Login",login);
-
+			return RedirectToAction("Home", "HomePage");
 		}
-
-
+	
 		[HttpPost]
 		public IActionResult Register(RegisterViewModel register)
 		{

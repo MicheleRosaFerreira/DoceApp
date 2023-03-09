@@ -15,10 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
-builder.Services.AddScoped<ILoginRepository>(s => new LoginRepository(s.GetRequiredService<IConfiguration>()));
-//builder.Services.AddScoped<ILoginService, LoginService>();
-//builder.Services.AddScoped<IPeople, PeopleRepository>();
-//builder.Services.AddScoped<IConfectionery, ConfectioneryRepository>();
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 
 builder.Services.AddDistributedMemoryCache();
 
