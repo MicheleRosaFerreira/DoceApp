@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoceApp.Models.Entidades
 {
@@ -25,7 +21,6 @@ namespace DoceApp.Models.Entidades
 		public string Password { get; set; }
         public bool AdminUser { get; set; }
 		public ToastrMessage ReturnMessage { get; set; }
-
 
 	}
 }

@@ -26,7 +26,7 @@ namespace DoceApp.Models.Repositório
 
 		public ActionResult<Loginn> GetLogin(int UserId)
 		{
-			string sql = ($"SELECT * FROM LOGIN WHERE [USER_ID] = {UserId}"); 
+			string sql = ($"SELECT [NICKNAME] FROM LOGIN WHERE [USER_ID] = {UserId}"); 
 
 			using (var con = new SqlConnection(connectionstring))
 			{

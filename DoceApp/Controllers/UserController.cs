@@ -2,7 +2,7 @@
 using DoceApp.Models;
 using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
-using System.Text;
+
 
 namespace DoceApp.Controllers
 {
@@ -16,28 +16,27 @@ namespace DoceApp.Controllers
 			_loginRepository = loginRepository;
 		}
 
+		[HttpGet]
 		public IActionResult Login()
 		{
 			return View();
 		}
-		public IActionResult RegisterUser()
-		{
-			return View();
-		}
-		public IActionResult Email()
-		{
-			return View();
-		}
-
+		//public IActionResult RegisterUser()
+		//{
+		//	return View();
+		//}
+		//public IActionResult Email()
+		//{
+		//	return View();
+		//}
+	
 		[HttpPost]
-		public  IActionResult GetLogin(Loginn login)
+		public IActionResult Login(Loginn login ,int UserId)
 		{
-			
 			if (ModelState.IsValid)
-			{
-				var verifyUser = _loginRepository.GetLoginNickname(login.Nickname);
-
-				if (verifyUser != null)
+			{   
+				var verifyUser = _loginRepository.GetLogin(UserId);
+				if (verifyUser != null )
 				{
 					return Ok(verifyUser);
 				}
@@ -49,24 +48,24 @@ namespace DoceApp.Controllers
 			}
 			return RedirectToAction("Home", "HomePage");
 		}
-	
-		[HttpPost]
-		public IActionResult Register(RegisterViewModel register)
-		{
-			if (ModelState.IsValid)
-			{
-				register.ReturnMessage = new ToastrMessage("success", " ", "Usuário Cadastrado com sucesso!");
-				return Ok();
-			}
-			if (register.Password != register.ConfirmPassword)
-			{
-				register.ReturnMessage = new ToastrMessage("error", " ", "As senhas são diferentes");
 
-				return View("RegisterUser", register);
-			}
-			register.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Tente novamente em alguns instantes.");
-			return View("RegisterUser", register);
-		}
+		//[HttpPost]
+		//public IActionResult Register(RegisterViewModel register)
+		//{
+		//	if (ModelState.IsValid)
+		//	{
+		//		register.ReturnMessage = new ToastrMessage("success", " ", "Usuário Cadastrado com sucesso!");
+		//		return Ok();
+		//	}
+		//	if (register.Password != register.ConfirmPassword)
+		//	{
+		//		register.ReturnMessage = new ToastrMessage("error", " ", "As senhas são diferentes");
+
+		//		return View("RegisterUser", register);
+		//	}
+		//	register.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Tente novamente em alguns instantes.");
+		//	return View("RegisterUser", register);
+		//}
 
 
 		//[HttpPost]

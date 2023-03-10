@@ -6,7 +6,7 @@
 	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
 }
 
-@*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 
 <link rel="stylesheet" href="~/css/Login.css" />
 
@@ -18,10 +18,11 @@
 		
 		<div class="facaLogin">
 			
-			<form asp-action="GetLogin" method="post" asp-controller="User">
-				<input class="form-control input-lg" asp-for ="Nickname" type="text" aria-label="Usuário" placeholder="Usuário"/>
+			<form asp-controller="User" asp-action="Login" method="post">
+				
+				<input class="form-control input-lg"  asp-for= "Nickname" type="text" id="" placeholder="Usuário"/>
 			
-				<br />
+				<br/>
 				
 				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha"/>
 			
@@ -31,10 +32,13 @@
 				</div>
 				
 				<br/>
-				
-				<button type="submit" class="btn btn-primary" > Entrar </button>
 
-																		
+			    <div>
+				
+					<button type="submit" class="btn btn-primary">Entrar</button>
+
+			    </div>
+
 				<br/> 
 				<div class="create">
 				  
