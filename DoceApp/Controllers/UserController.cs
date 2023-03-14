@@ -38,12 +38,12 @@ namespace DoceApp.Controllers
 				var verifyUser = _loginRepository.GetLogin(UserId);
 				if (verifyUser != null )
 				{
-					return Ok(verifyUser);
+                    return Ok(verifyUser);
 				}
 				else
 				{
 					NoContent();
-					//return View("Login", login);
+					return View("Login");
 				}
 			}
 			return RedirectToAction("Home", "HomePage");

@@ -1,6 +1,7 @@
 //using DoceApp.Context;
 //using DoceApp.Interface;
 //using DoceApp.Repositório;
+using DoceApp.Context;
 using DoceApp.Interface;
 using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
@@ -14,10 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
+builder.Services.AddDbContext<ContextBase>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DoceApp")));
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
-builder.Services.AddTransient<ILoginRepository, LoginRepository>();
-builder.Services.AddDbContext<LoginRepository>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DoceApp")));
+
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
