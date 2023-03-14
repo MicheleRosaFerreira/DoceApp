@@ -7,16 +7,17 @@ using DoceApp.Models.Interfaces;
 using DoceApp.Models.Repositório;
 using DoceApp.Models.Service;
 using FluentAssertions.Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
-builder.Services.AddScoped<ILoginRepository, LoginRepository>();
-
+builder.Services.AddTransient<ILoginRepository, LoginRepository>();
+builder.Services.AddDbContext<LoginRepository>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DoceApp")));
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>

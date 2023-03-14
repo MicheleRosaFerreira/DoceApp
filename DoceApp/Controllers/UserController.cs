@@ -31,7 +31,7 @@ namespace DoceApp.Controllers
 		//}
 	
 		[HttpPost]
-		public IActionResult Login(Loginn login ,int UserId)
+		public IActionResult Login(int UserId)
 		{
 			if (ModelState.IsValid)
 			{   

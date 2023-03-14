@@ -15,7 +15,7 @@ namespace DoceApp.Models.Repositório
 	//Aqui faço o select no banco de dados 
 	public class LoginRepository : ILoginRepository
 	{
-		private readonly string connectionstring;
+		private string connectionstring;
 		public LoginRepository(IConfiguration configuration)
 		{
 			Configuration = configuration;
@@ -28,7 +28,7 @@ namespace DoceApp.Models.Repositório
 		{
 			string sql = ($"SELECT [NICKNAME] FROM LOGIN WHERE [USER_ID] = {UserId}"); 
 
-			using (var con = new SqlConnection(connectionstring))
+			using (var con = new MySqlConnection(connectionstring))
 			{
 				return con.QueryFirstOrDefault<Loginn>(sql);
 			}
@@ -38,7 +38,7 @@ namespace DoceApp.Models.Repositório
 		{
 			string sql = ($"SELECT * FROM LOGIN WHERE [NICKNAME] = {nickName}");
 
-			using (var con = new SqlConnection(connectionstring))
+			using (var con = new MySqlConnection(connectionstring))
 			{
 				return con.QueryFirstOrDefault<Loginn>(sql);
 			}
