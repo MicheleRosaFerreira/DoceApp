@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore;
-using Dapper;
 using DoceApp.Interface;
 using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.SharePoint.Client;
-using MySqlConnector;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
 using DoceApp.Context;
+using DoceApp.Models.Repositório;
+using Microsoft.EntityFrameworkCore;
 
 namespace DoceApp.Models.Repositório
 {
@@ -21,9 +21,9 @@ namespace DoceApp.Models.Repositório
         {
             _context = context;
         }
-        public ActionResult<Loginn> GetLogin(int UserId)
+        public Login GetLogin(string nickname)
 		{
-            return  _context.logins.Find(UserId);
+            return  _context.Login.Find(nickname);
         }
 
 		//public ActionResult<Loginn> GetLoginNickname(string nickName)
@@ -32,5 +32,3 @@ namespace DoceApp.Models.Repositório
 		//}
 	}
 }
-	
-	

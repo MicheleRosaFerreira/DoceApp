@@ -16,45 +16,39 @@ namespace DoceApp.Controllers
 			_loginRepository = loginRepository;
 		}
 
-		[HttpGet]
 		public IActionResult Login()
 		{
 			return View();
 		}
-		//public IActionResult RegisterUser()
-		//{
-		//	return View();
-		//}
-		//public IActionResult Email()
-		//{
-		//	return View();
-		//}
-	
+		public IActionResult RegisterUser()
+		{
+			return View();
+		}
+		public IActionResult Email()
+		{
+			return View();
+		}
+
 		[HttpPost]
-		public IActionResult Login(int UserId)
+		public IActionResult Login(Login login)
 		{
 			if (ModelState.IsValid)
-			{   
-				var verifyUser = _loginRepository.GetLogin(UserId);
-				if (verifyUser != null )
-				{
-                    return Ok(verifyUser);
-				}
-				else
-				{
-					NoContent();
-					return View("Login");
-				}
+			{
+				_loginRepository.GetLogin(login.Nickname);
+				return RedirectToAction("Home", "HomePage");
 			}
-			return RedirectToAction("Home", "HomePage");
+		
+				return View("Login");
+
 		}
 
 		//[HttpPost]
-		//public IActionResult Register(RegisterViewModel register)
+		//public IActionResult RegisterUser(User userRegister)
 		//{
 		//	if (ModelState.IsValid)
 		//	{
-		//		register.ReturnMessage = new ToastrMessage("success", " ", "Usuário Cadastrado com sucesso!");
+		//		var register = _loginRepository.GetLogin(userRegister.)
+		//		userRegister.ReturnMessage = new ToastrMessage("success", " ", "Usuário Cadastrado com sucesso!");
 		//		return Ok();
 		//	}
 		//	if (register.Password != register.ConfirmPassword)

@@ -1,9 +1,9 @@
-﻿@model DoceApp.Models.Entidades.Loginn
+﻿@model DoceApp.Models.Entidades.Login
 @{
 	ViewData["Title"] = "Signin";
 	Layout = "CleanLayout";
 
-	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
+	//var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -20,7 +20,7 @@
 			
 			<form asp-controller="User" asp-action="Login" method="post">
 				
-				<input class="form-control input-lg"  asp-for= "Nickname" type="text" id="" placeholder="Usuário"/>
+				<input class="form-control input-lg"  asp-for= " " type="text" id="" placeholder="Usuário"/>
 			
 				<br/>
 				
@@ -54,7 +54,5 @@
 </div>
 
 <script>
-	if("@hasReturn" === "true"){
-		CallToastr("@Model?.ReturnMessage.Type", "@Model?.ReturnMessage.Title", "@Model?.ReturnMessage.Message")
-	}
+	
 </script>

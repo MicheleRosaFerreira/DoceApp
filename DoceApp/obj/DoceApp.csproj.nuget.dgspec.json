@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\miche\\source\\repos\\DoceApp\\DoceApp\\DoceApp.csproj": {}
+    "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\DoceApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\miche\\source\\repos\\DoceApp\\DoceApp\\DoceApp.csproj": {
+    "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\DoceApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\miche\\source\\repos\\DoceApp\\DoceApp\\DoceApp.csproj",
+        "projectUniqueName": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\DoceApp.csproj",
         "projectName": "DoceApp",
-        "projectPath": "C:\\Users\\miche\\source\\repos\\DoceApp\\DoceApp\\DoceApp.csproj",
-        "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\miche\\source\\repos\\DoceApp\\DoceApp\\obj\\",
+        "projectPath": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\DoceApp.csproj",
+        "packagesPath": "C:\\Users\\michele.ferreira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\michele.ferreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,10 +45,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.0.123, )"
-            },
             "FluentAssertions": {
               "target": "Package",
               "version": "[6.10.0, )"
@@ -58,27 +59,19 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
             },
             "Microsoft.SharePointOnline.CSOM": {
               "target": "Package",
               "version": "[16.1.23408.12000, )"
             },
-            "MySql.Data.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.22, )"
-            },
-            "MySqlConnector": {
-              "target": "Package",
-              "version": "[2.2.5, )"
-            },
             "SendGrid": {
               "target": "Package",
               "version": "[9.28.1, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.5, )"
             }
           },
           "imports": [
@@ -100,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
