@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore;
 using DoceApp.Interface;
-using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.SharePoint.Client;
@@ -13,8 +12,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DoceApp.Models.Repositório
 {
-	//Aqui faço o select no banco de dados 
-	public class LoginRepository : ILoginRepository
+    //Aqui faço o select no banco de dados 
+    public class LoginRepository : ILoginRepository
 	{
         private readonly ContextBase _context;
         public LoginRepository(ContextBase context)
@@ -23,7 +22,7 @@ namespace DoceApp.Models.Repositório
         }
         public Login GetLogin(string nickname)
 		{
-            return  _context.Login.Find(nickname);
+            return _context.Login.FirstOrDefault(l => l.Nickname == nickname);
         }
 
 		//public ActionResult<Loginn> GetLoginNickname(string nickName)

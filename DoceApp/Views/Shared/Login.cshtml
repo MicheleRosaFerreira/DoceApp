@@ -1,0 +1,60 @@
+﻿@model DoceApp.Models.Login
+@{
+	ViewData["Title"] = "Signin";
+	Layout = "CleanLayout";
+
+	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="~/css/Login.css" />
+
+<div class="flex-box">
+	<div class="flex-box-child">
+		<div class="figure-img">
+			<h1 class="title">Candy Gourmet</h1>
+		</div>
+		
+		<div class="facaLogin">
+			
+			<form asp-controller="User" asp-action="Login" method="post">
+				
+				<input class="form-control input-lg"  asp-for= "Nickname" type="text" id="" placeholder="Usuário"/>
+			
+				<br/>
+				
+				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha"/>
+			
+				<div class="forgot">
+					<a href="@Url.Action("Email", "User")">Esqueci minha senha </a>
+
+				</div>
+				
+				<br/>
+
+			    <div>
+				
+					<button type="submit" class="btn btn-primary">Entrar</button>
+
+			    </div>
+
+				<br/> 
+				<div class="create">
+				  
+					<p> Não possui um usuário na DoceApp?</p>
+					
+				  <a href="@Url.Action("RegisterUser", "User")" >Cadastre-se agora </a>
+				
+				</div>
+				
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+	if ("@hasReturn" === "true") {
+		CallToastr("@Model?.ReturnMessage.Type", "@Model?.ReturnMessage.Title", "@Model?.ReturnMessage.Message")
+	}
+</script>

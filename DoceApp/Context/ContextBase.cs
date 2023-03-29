@@ -1,4 +1,4 @@
-﻿using DoceApp.Models.Entidades;
+﻿using DoceApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoceApp.Context

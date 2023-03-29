@@ -1,4 +1,4 @@
-﻿using DoceApp.Models.Entidades;
+﻿using DoceApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DoceApp.Interface
 {
-	public interface ILoginRepository
+    public interface ILoginRepository
 	{
 		Login GetLogin(string nickname);
 		//ActionResult<Loginn> GetLoginNickname(string nickName);

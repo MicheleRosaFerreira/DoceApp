@@ -1,12 +1,11 @@
 ﻿using DoceApp.Interface;
 using DoceApp.Models;
-using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace DoceApp.Controllers
 {
-	public class UserController : Controller
+    public class UserController : Controller
 	{
 		private readonly ILoginRepository _loginRepository;
 
