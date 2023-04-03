@@ -33,7 +33,7 @@ namespace DoceApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_loginRepository.GetLogin(login.Nickname);
+				_loginRepository.GetLogin(login.Nickname, login.Password);
 				return RedirectToAction("Home", "HomePage");
 			}
 		

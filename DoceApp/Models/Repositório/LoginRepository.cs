@@ -14,20 +14,20 @@ namespace DoceApp.Models.Repositório
 {
     //Aqui faço o select no banco de dados 
     public class LoginRepository : ILoginRepository
-	{
+    {
         private readonly ContextBase _context;
         public LoginRepository(ContextBase context)
         {
             _context = context;
         }
-        public Login GetLogin(string nickname)
-		{
-            return _context.Login.FirstOrDefault(l => l.Nickname == nickname);
-        }
+        public Login GetLogin(string nickname, string password)
+        {
+            return _context.Login.FirstOrDefault(l => l.Nickname == nickname && l.Password == password);
 
-		//public ActionResult<Loginn> GetLoginNickname(string nickName)
-		//{
-			
-		//}
-	}
+            //public ActionResult<Loginn> GetLoginNickname(string nickName)
+            //{
+
+            //}
+        }
+    }
 }

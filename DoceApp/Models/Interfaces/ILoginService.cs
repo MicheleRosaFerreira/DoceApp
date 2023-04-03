@@ -2,6 +2,6 @@
 {
 	public interface ILoginService
 	{
-	  Login GetLogin(Login login);
+	 Login GetLogin(Login login);
 	}
 }
