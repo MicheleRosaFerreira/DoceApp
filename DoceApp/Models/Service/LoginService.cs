@@ -17,17 +17,17 @@ namespace DoceApp.Models.Service
 		// Não pode existir um usuário repetido no banco de dados e, o nome de usuário não pode ser maior que 11.
 		public Login GetLogin(Login login)
 		{
-			var getUsers = _loginRepository.GetLogin(login.Nickname, login.Password);
-			if (getUsers == null)
+			var _login = _loginRepository.GetLogin(login.Nickname);
+			if (_login == null)
 			{
 				login.ReturnMessage = new ToastrMessage("error","Falha ao realizar login","Usuário não cadastrado!");
 			}
-			//else if (getUsers
-			//{
+		    if(_login != null && login.Password == _login.Password) 
+			{
+				
+			}
 
-			//}
-
-			return _loginRepository.GetLogin(login.Nickname,login.Password);
+			return ;
 		}
 	}
 }

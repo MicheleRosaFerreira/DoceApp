@@ -20,9 +20,9 @@ namespace DoceApp.Models.Repositório
         {
             _context = context;
         }
-        public Login GetLogin(string nickname, string password)
+        public Login GetLogin(string nickname)
         {
-            return _context.Login.FirstOrDefault(l => l.Nickname == nickname && l.Password == password);
+            return _context.Login.FirstOrDefault(l => l.Nickname == nickname);
 
             //public ActionResult<Loginn> GetLoginNickname(string nickName)
             //{
