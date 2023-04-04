@@ -1,4 +1,4 @@
-﻿using DoceApp.Models;
+﻿using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

@@ -9,6 +9,7 @@ using System.Text;
 using DoceApp.Context;
 using DoceApp.Models.Repositório;
 using Microsoft.EntityFrameworkCore;
+using DoceApp.Models.Entidades;
 
 namespace DoceApp.Models.Repositório
 {

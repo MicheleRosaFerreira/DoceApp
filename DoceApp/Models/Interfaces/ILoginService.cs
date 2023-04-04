@@ -1,7 +1,9 @@
-﻿namespace DoceApp.Models.Interfaces
+﻿using DoceApp.Models.Entidades;
+
+namespace DoceApp.Models.Interfaces
 {
-	public interface ILoginService
+    public interface ILoginService
 	{
-	 Login GetLogin(Login login);
+	 bool GetLogin(LoginViewModel login);
 	}
 }

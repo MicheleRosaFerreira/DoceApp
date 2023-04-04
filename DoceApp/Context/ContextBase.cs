@@ -1,4 +1,4 @@
-﻿using DoceApp.Models;
+﻿using DoceApp.Models.Entidades;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoceApp.Context
@@ -26,11 +26,11 @@ namespace DoceApp.Context
             {
                 modelBuilder.Entity<Login>(e =>
                 {
-                    //modelBuilder.Entity<Login>(e => { e.ToTable("LOGIN"))};
                     modelBuilder.Entity<Login>().HasKey(i => i.User_Login_Id);
 					modelBuilder.Entity<Login>().Property(n => n.Nickname).IsRequired();
-                  
-				});
+					modelBuilder.Entity<Login>().Property(p => p.Password).IsRequired();
+                    
+                });
 
             }
      }

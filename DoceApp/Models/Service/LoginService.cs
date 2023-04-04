@@ -7,7 +7,7 @@ using Microsoft.Online.SharePoint.SPLogger;
 
 namespace DoceApp.Models.Service
 {
-	public class LoginService : ILoginService
+    public class LoginService : ILoginService
 	{
 		private readonly LoginRepository _loginRepository;
 		public LoginService(LoginRepository loginRepository)
@@ -15,7 +15,7 @@ namespace DoceApp.Models.Service
 			_loginRepository = loginRepository;
 		}
 		// Não pode existir um usuário repetido no banco de dados e, o nome de usuário não pode ser maior que 11.
-		public Login GetLogin(Login login)
+		public bool GetLogin(LoginViewModel login)
 		{
 			var _login = _loginRepository.GetLogin(login.Nickname);
 			if (_login == null)
@@ -24,10 +24,10 @@ namespace DoceApp.Models.Service
 			}
 		    if(_login != null && login.Password == _login.Password) 
 			{
-				
+				return true;
 			}
 
-			return ;
+			return false;
 		}
 	}
 }

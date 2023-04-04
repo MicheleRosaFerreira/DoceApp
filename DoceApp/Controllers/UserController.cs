@@ -1,5 +1,6 @@
 ﻿using DoceApp.Interface;
 using DoceApp.Models;
+using DoceApp.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -33,12 +34,11 @@ namespace DoceApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_loginRepository.GetLogin(login.Nickname, login.Password);
+				_loginRepository.GetLogin(login.Nickname);
 				return RedirectToAction("Home", "HomePage");
 			}
 		
 				return View("Login");
-
 		}
 
 		//[HttpPost]
