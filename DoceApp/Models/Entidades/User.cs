@@ -11,7 +11,7 @@ namespace DoceApp.Models.Entidades
 		[DisplayName("Digite seu nome.")]
 		public string Name { get; set; }
 
-		[Required(ErrorMessage = "O campo CPF é obrigatório.")]
+		[Required(ErrorMessage = "O campo CPF é obrigatório,favor preencher sem pontos e traços")]
 		[DisplayName("Digite seu Cpf.")]
 		[RegularExpression("/^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/")]
 		public string Cpf { get; set; }
@@ -24,7 +24,6 @@ namespace DoceApp.Models.Entidades
 		[DisplayName("Digite seu endereço de email.")]
 		[EmailAddress(ErrorMessage = "Endereço de email inválido.")]
 		public string Email  { get; set; }
-		public ToastrMessage ReturnMessage { get; set; }
 
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using DoceApp.Interface;
 using DoceApp.Models;
 using DoceApp.Models.Entidades;
+using DoceApp.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -8,12 +9,13 @@ namespace DoceApp.Controllers
 {
     public class UserController : Controller
 	{
-		private readonly ILoginRepository _loginRepository;
+		private readonly ILoginService _loginService;
 
-
-		public UserController(ILoginRepository loginRepository)
+		private readonly IUserService _userService;
+		public UserController(ILoginService loginService , IUserService userService)
 		{
-			_loginRepository = loginRepository;
+			_loginService = loginService;
+			_userService = userService;
 		}
 
 		public IActionResult Login()
@@ -30,35 +32,41 @@ namespace DoceApp.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Login(Login login)
+		public IActionResult Login(LoginViewModel login)
 		{
-			if (ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
-				_loginRepository.GetLogin(login.Nickname);
+				return View(login);
+			}
+			var verifyUser = _loginService.GetLogin(login);
+
+			if (verifyUser != null && verifyUser.Password == login.Password)
+			{
 				return RedirectToAction("Home", "HomePage");
 			}
-		
-				return View("Login");
+			login.ReturnMessage = new ToastrMessage("error","Falha ao efetuar login","Usuário ou senha incorretos");
+			return View(login);
 		}
 
-		//[HttpPost]
-		//public IActionResult RegisterUser(User userRegister)
-		//{
-		//	if (ModelState.IsValid)
-		//	{
-		//		var register = _loginRepository.GetLogin(userRegister.)
-		//		userRegister.ReturnMessage = new ToastrMessage("success", " ", "Usuário Cadastrado com sucesso!");
-		//		return Ok();
-		//	}
-		//	if (register.Password != register.ConfirmPassword)
-		//	{
-		//		register.ReturnMessage = new ToastrMessage("error", " ", "As senhas são diferentes");
+		[HttpPost]
+		public IActionResult RegisterUser(UserViewModel userRegister)
+		{
+			if (!ModelState.IsValid)
+			{
+				return View(userRegister);
+			}
 
-		//		return View("RegisterUser", register);
-		//	}
-		//	register.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Tente novamente em alguns instantes.");
-		//	return View("RegisterUser", register);
-		//}
+			var register = _userService.Create(userRegister);
+
+			if (register != null)
+			{
+				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Usuário cadastrado com sucesso!");
+				return View(userRegister);
+			}
+
+			userRegister.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Verifique as informações e tente novamente!");
+			return View(userRegister);
+		}
 
 
 		//[HttpPost]

@@ -1,55 +1,24 @@
-﻿using DoceApp.Models.Entidades;
+﻿using DoceApp.Controllers;
+using DoceApp.Interface;
+using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
 using DoceApp.Models.Repositório;
 using System.ComponentModel.DataAnnotations;
 
 namespace DoceApp.Models.Service
 {
-	public class UserService :IUserService
+	public class UserService : IUserService
 	{
 		private readonly IUserRepository _userRepository;
-		public UserService()
+		public UserService(IUserRepository userRepository)
 		{
-			//_userRepository = new UserRepository();
-		
-		}
-		
-		public Task<List<User>> GetAll()
-		{
-			throw new NotImplementedException();
-		}
+			_userRepository = userRepository;
 
-		public Task<User> Get(int Id)
-		{
-			throw new NotImplementedException();
 		}
-
-		public Task<User> Create(User user)
+		public User Create(User user)
 		{
-			try
-			{
-				
-			}
-			catch (Exception ex)
-			{
-				throw new Exception();
-			}
-			throw new NotImplementedException();
-		}
-
-		public Task Update(User user)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<User> Delete(int Id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<User> GetByCpf(string cpf)
-		{
-			throw new NotImplementedException();
+			_userRepository.Create(user);
+			return user; ;
 		}
 	}
 }

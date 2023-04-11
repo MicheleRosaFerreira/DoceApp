@@ -3,6 +3,7 @@
 	ViewData["Title"] = "Signin";
 	Layout = "CleanLayout";
 	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
+	var message = Model?.ReturnMessage != null ? Model.ReturnMessage : new DoceApp.Models.Entidades.ToastrMessage("", "", "");
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -18,11 +19,12 @@
 		<div class="facaLogin">
 			
 			<form asp-controller="User" asp-action="Login" method="post">
-				
+
+				<span asp-validation-for = "Nickname" class="text-danger"> </span>
 				<input class="form-control input-lg"  asp-for= "Nickname" type="text" id="" placeholder="Usuário"/>
 			
 				<br/>
-				
+				<span asp-validation-for="Password" class="text-danger"> </span>
 				<input class="form-control input-lg" asp-for="Password" type="password" aria-label="Senha" placeholder="Senha"/>
 			
 				<div class="forgot">
@@ -54,6 +56,6 @@
 
 <script>
 	if ("@hasReturn" === "true") {
-		CallToastr("@Model?.ReturnMessage.Type", "@Model?.ReturnMessage.Title", "@Model?.ReturnMessage.Message")
+		CallToastr("@message.Type", "@message.Title", "@message.Message")
 	}
 </script>

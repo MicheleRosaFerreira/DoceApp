@@ -1,4 +1,6 @@
-﻿using DoceApp.Models.Entidades;
+﻿using DoceApp.Controllers;
+using DoceApp.Interface;
+using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
 using DoceApp.Models.Repositório;
 using Microsoft.AspNetCore.Identity;
@@ -9,25 +11,16 @@ namespace DoceApp.Models.Service
 {
     public class LoginService : ILoginService
 	{
-		private readonly LoginRepository _loginRepository;
-		public LoginService(LoginRepository loginRepository)
+		private readonly ILoginRepository _loginRepository;
+		public LoginService(ILoginRepository loginRepository)
 		{
 			_loginRepository = loginRepository;
 		}
 		// Não pode existir um usuário repetido no banco de dados e, o nome de usuário não pode ser maior que 11.
-		public bool GetLogin(LoginViewModel login)
+		public Login GetLogin(Login login)
 		{
-			var _login = _loginRepository.GetLogin(login.Nickname);
-			if (_login == null)
-			{
-				login.ReturnMessage = new ToastrMessage("error","Falha ao realizar login","Usuário não cadastrado!");
-			}
-		    if(_login != null && login.Password == _login.Password) 
-			{
-				return true;
-			}
-
-			return false;
+			var getUser = _loginRepository.GetLogin(login.Nickname);
+			return getUser;
 		}
 	}
 }

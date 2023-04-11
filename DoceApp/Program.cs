@@ -4,6 +4,7 @@ using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
 using DoceApp.Models.Repositório;
 using DoceApp.Models.Service;
+using DoceApp.Repositório;
 using FluentAssertions.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,9 @@ var con = builder.Configuration.GetConnectionString("DoceApp");
 builder.Services.AddDbContext<ContextBase>(options => options.UseSqlServer(con));
 
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddMvc();
 
 builder.Services.AddDistributedMemoryCache();

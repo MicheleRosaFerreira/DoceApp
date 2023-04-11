@@ -12,7 +12,6 @@ namespace DoceApp.Interface
 	{
 		Login GetLogin(string nickname);
 		//ActionResult<Loginn> GetLoginNickname(string nickName);
-
-
+		
 	}
 }

@@ -1,10 +1,10 @@
-﻿@model DoceApp.Models.Entidades.User;
+﻿@model DoceApp.Models.UserViewModel;
 @{
 	ViewData["Title"] = "RegisterUser";
 	Layout = "CleanLayout";
 
 	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
-	
+	var message = Model?.ReturnMessage != null ? Model.ReturnMessage : new DoceApp.Models.Entidades.ToastrMessage("", "", "");
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -24,14 +24,24 @@
 			</div>
 			<br/>
 			<form method="post" asp-controller="User" asp-action="Register">
+
+				<span asp-validation-for="Name" class="text-danger"></span>
 				<input class="form-control input-lg" asp-for="Name" type="text" aria-label="Nome" placeholder="Nome">
 				
 				<br/>
 
-				<input class="form-control " asp-for="Email" type="email" aria-label="Email" placeholder="ex: example@email.com.br">
+				<span asp-validation-for="Cpf" class="text-danger"></span>
+				<input class="form-control input-lg" asp-for="Cpf" type="text" aria-label="Cpf" placeholder="ex:000.000.000-00">
+				
+				<br/>
+
+				<span asp-validation-for="Bithdate" class="text-danger"></span>
+				<input class="form-control " asp-for="Bithdate" type="date" aria-label="Bithdate">
 
 				<br />
-				<input class="form-control " asp-for="Cpf" type="text" placeholder="ex: 000.000.000-00">
+
+				<span asp-validation-for="Email" class="text-danger"></span>
+				<input class="form-control " asp-for="Email" type="email" placeholder="ex:example@email.com">
 
 				<br />
 									
@@ -51,12 +61,9 @@
 			</form>
 		</div>
 	</div>
-</div>  
-
-
+</div>
 <script>
-
-		if ("@hasReturn" === "true") {
-		CallToastr("@Model?.ReturnMessage.Type", "@Model?.ReturnMessage.Title", "@Model?.ReturnMessage.Message")
+	if ("@hasReturn" === "true") {
+		CallToastr("@message.Type", "@message.Title", "@message.Message")
 	}
 </script>

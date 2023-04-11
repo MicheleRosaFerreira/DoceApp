@@ -4,6 +4,6 @@ namespace DoceApp.Models.Interfaces
 {
     public interface ILoginService
 	{
-	 bool GetLogin(LoginViewModel login);
+	 Login GetLogin(Login login);
 	}
 }
