@@ -15,10 +15,10 @@ namespace DoceApp.Models.Service
 			_userRepository = userRepository;
 
 		}
-		public User Create(User user)
+		public Users Create(Users user)
 		{
 			_userRepository.Create(user);
-			return user; ;
+			return user; 
 		}
 	}
 }

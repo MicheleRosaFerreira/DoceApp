@@ -3,7 +3,7 @@ using DoceApp.Models;
 using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Text.RegularExpressions;
 
 namespace DoceApp.Controllers
 {
@@ -56,10 +56,14 @@ namespace DoceApp.Controllers
 				return View(userRegister);
 			}
 
-			var register = _userService.Create(userRegister);
+			var user = new Users(userRegister.Name, userRegister.Cpf.Replace("[^0-9,]", ""),userRegister.Birthdate, userRegister.Email);
+			
 
-			if (register != null)
+			var register = _userService.Create(user);
+
+			if (register != null && userRegister.Password == userRegister.ConfirmPassword)
 			{
+				
 				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Usuário cadastrado com sucesso!");
 				return View(userRegister);
 			}

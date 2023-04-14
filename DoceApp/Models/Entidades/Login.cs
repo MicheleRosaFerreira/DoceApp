@@ -11,6 +11,7 @@ namespace DoceApp.Models.Entidades
     {
         [Key]
         public int User_Login_Id { get; set; }
+        [ForeignKey("USER")]
         public int User_Id { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório.")]

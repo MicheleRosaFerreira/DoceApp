@@ -7,7 +7,7 @@ namespace DoceApp.Models.Interfaces
 		//Task<List<User>> GetAll();
 		//Task<User> Get(int Id);
 		//Task <User> GetByCpf(string cpf);
-		User Create(User user);
+		Users Create(Users user);
 		//Task Update(User user);
 		//Task<User> Delete(int Id);
 	}

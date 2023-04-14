@@ -7,10 +7,6 @@
 	var message = Model?.ReturnMessage != null ? Model.ReturnMessage : new DoceApp.Models.Entidades.ToastrMessage("", "", "");
 }
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
-*@
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
 
 <div class="flex-box">
@@ -23,7 +19,7 @@
 				<h1 class="subtitle">Cadastro</h1>
 			</div>
 			<br/>
-			<form method="post" asp-controller="User" asp-action="Register">
+			<form method="post" asp-controller="User" asp-action="RegisterUser">
 
 				<span asp-validation-for="Name" class="text-danger"></span>
 				<input class="form-control input-lg" asp-for="Name" type="text" aria-label="Nome" placeholder="Nome">
@@ -31,20 +27,35 @@
 				<br/>
 
 				<span asp-validation-for="Cpf" class="text-danger"></span>
-				<input class="form-control input-lg" asp-for="Cpf" type="text" aria-label="Cpf" placeholder="ex:000.000.000-00">
+				<input id="txtCPF" class="form-control input-lg" asp-for="Cpf" type="text" aria-label="Cpf" >
+
 				
 				<br/>
 
-				<span asp-validation-for="Bithdate" class="text-danger"></span>
-				<input class="form-control " asp-for="Bithdate" type="date" aria-label="Bithdate">
-
+				<span asp-validation-for="Birthdate" class="text-danger"></span>
+				<label>Data de nascimento: </label>
+				<input class="form-control " asp-for="Birthdate" type="date" aria-label="Bithdate">
+				
 				<br />
 
 				<span asp-validation-for="Email" class="text-danger"></span>
-				<input class="form-control " asp-for="Email" type="email" placeholder="ex:example@email.com">
+				<input class="form-control " asp-for="Email" type="email" placeholder="E-mail">
 
 				<br />
-									
+
+				<span asp-validation-for="Nickname" class="text-danger"></span>
+				<input class="form-control " asp-for="Nickname" type="text" placeholder="Nome de usuário">
+
+				<br />
+
+				<span asp-validation-for="Password" class="text-danger"></span>
+				<input class="form-control " asp-for="Password" type="password" placeholder="Senha">
+
+				<br />
+				<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+				<input class="form-control " asp-for="ConfirmPassword" type="password" placeholder="confirmar senha">
+
+				<br />
 
 				<p>
 					Use oito caracteres com uma combinação de letras, números e símbolos.
@@ -56,7 +67,7 @@
 				
 				<p class="link">
 					Já tem conta?
-					<a href="@Url.Action("Login", "User")">Ir para Login </a>
+					<a href="@Url.Action("RegisterUser", "User")">Ir para Login </a>
 				</p>
 			</form>
 		</div>
@@ -66,4 +77,6 @@
 	if ("@hasReturn" === "true") {
 		CallToastr("@message.Type", "@message.Title", "@message.Message")
 	}
+	
+	$('#txtCPF').mask('000.000.000-00', { placeholder: "___.___.___-__" });
 </script>

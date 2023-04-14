@@ -16,9 +16,9 @@ namespace DoceApp.Repositório
 		{
 			_context = context;
 		}
-		public User Create(User user)
+		public Users Create(Users user)
 		{
-			_context.Users.Add(user);
+			_context.User.Add(user);
 			_context.SaveChanges();
 			return user;
 		}
