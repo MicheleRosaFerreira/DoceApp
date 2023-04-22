@@ -9,49 +9,49 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DoceApp
 build_property.RootNamespace = DoceApp
-build_property.ProjectDir = C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp\
+build_property.ProjectDir = C:\Users\miche\source\repos\DoceApp\DoceApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\michele.ferreira\source\repos\ProjetoDoceApp\DoceApp\DoceApp
+build_property.MSBuildProjectDirectory = C:\Users\miche\source\repos\DoceApp\DoceApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/Email.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/Error.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/Login.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/Privacy.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByaXZhY3kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/RegisterUser.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/RegisterUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlZ2lzdGVyVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/_ViewImports.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/_ViewStart.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/CleanLayout.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/CleanLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENsZWFuTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-b158glsl7u
 
-[C:/Users/michele.ferreira/source/repos/ProjetoDoceApp/DoceApp/DoceApp/Views/Shared/_Layout.cshtml]
+[C:/Users/miche/source/repos/DoceApp/DoceApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9mobctppun

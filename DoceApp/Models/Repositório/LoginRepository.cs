@@ -23,7 +23,7 @@ namespace DoceApp.Models.Repositório
         }
         public Login GetLogin(string nickname)
         {
-            return _context.Login.FirstOrDefault(l => l.Nickname == nickname);
+            return _context.Login_User.FirstOrDefault(l => l.Nickname == nickname);
 
             //public ActionResult<Loginn> GetLoginNickname(string nickName)
             //{

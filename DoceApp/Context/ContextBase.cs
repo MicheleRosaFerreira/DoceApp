@@ -14,7 +14,7 @@ namespace DoceApp.Context
             {
 
             }
-            public DbSet<Login> Login { get; set; }
+            public DbSet<Login> Login_User { get; set; }
             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
                 if (!optionsBuilder.IsConfigured)

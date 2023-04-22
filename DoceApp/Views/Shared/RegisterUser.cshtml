@@ -3,7 +3,6 @@
 	ViewData["Title"] = "RegisterUser";
 	Layout = "CleanLayout";
 
-	var hasReturn = Model?.ReturnMessage != null ? "true" : "false";
 	
 }
 
@@ -54,9 +53,3 @@
 </div>  
 
 
-<script>
-
-		if ("@hasReturn" === "true") {
-		CallToastr("@Model?.ReturnMessage.Type", "@Model?.ReturnMessage.Title", "@Model?.ReturnMessage.Message")
-	}
-</script>
