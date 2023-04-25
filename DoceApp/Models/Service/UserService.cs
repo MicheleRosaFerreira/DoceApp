@@ -4,6 +4,7 @@ using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
 using DoceApp.Models.Repositório;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace DoceApp.Models.Service
 {
@@ -15,10 +16,17 @@ namespace DoceApp.Models.Service
 			_userRepository = userRepository;
 
 		}
-		public Users Create(Users user)
+		public User Create(User user)
 		{
 			_userRepository.Create(user);
 			return user; 
+		}
+
+		public string EncryptPassword(string password)
+		{
+			var encodedValue = Encoding.UTF8.GetBytes(password);
+
+			return encodedValue.ToString();
 		}
 	}
 }

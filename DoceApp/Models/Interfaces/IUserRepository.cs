@@ -13,7 +13,7 @@ namespace DoceApp.Models.Interfaces
 		//ActionResult<List<User>> GetAll();
 		//ActionResult<User> Get(int Id);
 		//ActionResult<User> GetByCpf(string Cpf);
-		Users Create(Users user);
+		User Create(User user);
 		//ActionResult Update(User user);
 		//ActionResult<User> Delete(int Id);
     }

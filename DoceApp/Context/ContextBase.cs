@@ -1,5 +1,6 @@
 ﻿using DoceApp.Models.Entidades;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace DoceApp.Context
 {
@@ -15,7 +16,7 @@ namespace DoceApp.Context
 
 		}
 		public DbSet<Login> Login { get; set; }
-		public DbSet<Users> User { get; set; }
+		public DbSet<User> User { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			if (!optionsBuilder.IsConfigured)
@@ -32,17 +33,17 @@ namespace DoceApp.Context
 				modelBuilder.Entity<Login>().Property(p => p.Password).IsRequired();
 
 			});
-			modelBuilder.Entity<Users>(e =>
+			modelBuilder.Entity<User>(e =>
 			{
-				modelBuilder.Entity<Users>()
-				.HasOne<Login>(u => u.userLogin)
-				.WithOne(l => l.Nickname)
-				.HasForeignKey(Login_User_Id);
+				modelBuilder.Entity<User>().Property(p => p.Name).IsRequired();	
+				modelBuilder.Entity<User>().Property(p => p.Cpf).IsRequired();	
+				modelBuilder.Entity<User>().Property(p => p.Birthdate).IsRequired();	
+				modelBuilder.Entity<User>().Property(p => p.Email).IsRequired();
 
-				modelBuilder.Entity<Users>().Property(p => p.Name).IsRequired();	
-				modelBuilder.Entity<Users>().Property(p => p.Cpf).IsRequired();	
-				modelBuilder.Entity<Users>().Property(p => p.Birthdate).IsRequired();	
-				modelBuilder.Entity<Users>().Property(p => p.Email).IsRequired();	
+				modelBuilder.Entity<User>()
+				.HasOne<Login>(u => u.userLogin)
+				.WithOne(u => u.users)
+				.HasForeignKey<Login>(e => e.User_Id);
 			});
 
 

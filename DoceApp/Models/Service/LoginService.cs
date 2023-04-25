@@ -6,6 +6,7 @@ using DoceApp.Models.Repositório;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.Online.SharePoint.SPLogger;
+using System.Text;
 
 namespace DoceApp.Models.Service
 {

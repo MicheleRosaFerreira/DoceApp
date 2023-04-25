@@ -3,6 +3,7 @@ using DoceApp.Models;
 using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace DoceApp.Controllers
@@ -56,20 +57,18 @@ namespace DoceApp.Controllers
 				return View(userRegister);
 			}
 
-			var user = new Users(userRegister.Name, userRegister.Cpf.Replace("[^0-9,]", ""),userRegister.Birthdate, userRegister.Email);
+			var user = new User(userRegister.Name, userRegister.Cpf.Replace(".", "").Replace("-", "")
+			, userRegister.Birthdate, userRegister.Email, userRegister.Nickname, _userService.EncryptPassword(userRegister.Password));
 			
-
-			var register = _userService.Create(user);
-
-			if (register != null && userRegister.Password == userRegister.ConfirmPassword)
+			if (user != null && userRegister.Password == userRegister.ConfirmPassword)
 			{
-				
+				_userService.Create(user);
 				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Usuário cadastrado com sucesso!");
 				return View(userRegister);
+				
 			}
-
-			userRegister.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Verifique as informações e tente novamente!");
-			return View(userRegister);
+			    userRegister.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Verifique as informações e tente novamente!");
+				return View(userRegister);
 		}
 
 

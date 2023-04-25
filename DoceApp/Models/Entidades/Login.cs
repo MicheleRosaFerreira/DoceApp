@@ -22,7 +22,23 @@ namespace DoceApp.Models.Entidades
         [DisplayName("Digite a sua senha")]
         public string Password { get; set; }
 
+		public User users { get; set; }
+
 		//public bool AdminUser { get; set; }
+
+		public Login()
+		{
+
+		}
+		public Login(string password)
+        {
+
+        }
+        public Login(string nickname,string password)
+        {
+            Nickname = nickname;
+            Password = password;
+        }
 
 
 	}
