@@ -57,10 +57,9 @@ namespace DoceApp.Controllers
 				return View(userRegister);
 			}
 
-			var user = new User(userRegister.Name, userRegister.Cpf.Replace(".", "").Replace("-", "")
-			, userRegister.Birthdate, userRegister.Email, userRegister.Nickname, _userService.EncryptPassword(userRegister.Password));
+			var user = new User(userRegister);
 			
-			if (user != null && userRegister.Password == userRegister.ConfirmPassword)
+			if (userRegister.Password == userRegister.ConfirmPassword)
 			{
 				_userService.Create(user);
 				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Usuário cadastrado com sucesso!");

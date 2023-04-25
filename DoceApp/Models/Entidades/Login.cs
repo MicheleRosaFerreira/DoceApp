@@ -30,10 +30,6 @@ namespace DoceApp.Models.Entidades
 		{
 
 		}
-		public Login(string password)
-        {
-
-        }
         public Login(string nickname,string password)
         {
             Nickname = nickname;

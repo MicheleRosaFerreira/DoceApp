@@ -18,6 +18,8 @@ namespace DoceApp.Models.Service
 		}
 		public User Create(User user)
 		{
+			user.Cpf = user.Cpf.Replace(".", "").Replace("-","");
+			user.userLogin.Password = EncryptPassword(user.userLogin.Password);
 			_userRepository.Create(user);
 			return user; 
 		}
@@ -26,7 +28,7 @@ namespace DoceApp.Models.Service
 		{
 			var encodedValue = Encoding.UTF8.GetBytes(password);
 
-			return encodedValue.ToString();
+			return encodedValue.ToString() ?? "";
 		}
 	}
 }

@@ -21,6 +21,14 @@ namespace DoceApp.Models.Entidades
 			Email = email;
 			userLogin= new Login(nickName, password);
 		}
+		public User(UserViewModel userViewModel)
+		{
+			Name= userViewModel.Name;
+			Cpf = userViewModel.Cpf;
+			Birthdate = userViewModel.Birthdate;
+			Email = userViewModel.Email;
+			userLogin = new Login(userViewModel.Nickname,userViewModel.Password);
+		}
 	}
 }
  
