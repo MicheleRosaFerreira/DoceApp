@@ -26,7 +26,7 @@ namespace DoceApp.Models.Service
 
 		public string EncryptPassword(string password)
 		{
-			var encodedValue = Encoding.UTF8.GetBytes(password);
+			var encodedValue = Convert.ToBase64String(Encoding.GetEncoding("iso-8859-1").GetBytes(password));
 
 			return encodedValue.ToString() ?? "";
 		}
