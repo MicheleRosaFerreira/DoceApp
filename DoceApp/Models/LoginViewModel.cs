@@ -2,10 +2,9 @@
 
 namespace DoceApp.Models
 {
-	public class LoginViewModel 
+	public class LoginViewModel : Login
 	{
-		public string Nickname { get; set; }
-		public string Password  { get; set; }
+		
 		public ToastrMessage? ReturnMessage { get; set; }
 	}
 }

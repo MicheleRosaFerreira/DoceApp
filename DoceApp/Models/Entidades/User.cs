@@ -12,22 +12,26 @@ namespace DoceApp.Models.Entidades
 		public DateTime Birthdate { get; set; }
 		public string Email { get; set; }
 		public Login userLogin { get; set; }
-	
-		public User(string name , string cpf, DateTime bithdate,string email, string nickName , string password)
+
+		public User()
+		{
+
+		}
+		public User(string name, string cpf, DateTime bithdate, string email, string nickName, string password)
 		{
 			Name = name;
 			Cpf = cpf;
 			Birthdate = bithdate;
 			Email = email;
-			userLogin= new Login(nickName, password);
+			userLogin = new Login(nickName, password);
 		}
 		public User(UserViewModel userViewModel)
 		{
-			Name= userViewModel.Name;
+			Name = userViewModel.Name;
 			Cpf = userViewModel.Cpf;
 			Birthdate = userViewModel.Birthdate;
 			Email = userViewModel.Email;
-			userLogin = new Login(userViewModel.Nickname,userViewModel.Password);
+			userLogin = new Login(userViewModel.Nickname, userViewModel.Password);
 		}
 	}
 }

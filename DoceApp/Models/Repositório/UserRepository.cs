@@ -1,4 +1,5 @@
 ﻿using DoceApp.Context;
+using DoceApp.Models;
 using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
