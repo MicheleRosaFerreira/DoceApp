@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.SharePoint.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DoceApp.Models.Entidades
 {
@@ -20,7 +22,9 @@ namespace DoceApp.Models.Entidades
 
         [Required(ErrorMessage = "Campo obrigatório.")]
         [DisplayName("Digite a sua senha")]
-        public string Password { get; set; }
+        [JsonIgnore]//impede que a propriedade de senha seja serializada e retornada em respostas de API.
+
+		public string Password { get; set; }
 
 		public User users { get; set; }
 

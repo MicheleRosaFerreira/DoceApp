@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\HomePage.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\Login.css" />
   </ItemGroup>
 

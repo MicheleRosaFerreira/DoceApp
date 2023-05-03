@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aRio9zm6gekkRIIix8jQ0b3JTOvXS/sqsHm9a5BJJPI=",
+  "Hash": "0nOGyjjb+4iZuszWs6gDQPl4/l+qORdLWbllQ/hbT44=",
   "Source": "DoceApp",
   "BasePath": "_content/DoceApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DoceApp.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\wwwroot\\css\\HomePage.css",
+      "SourceId": "DoceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\wwwroot\\",
+      "BasePath": "_content/DoceApp",
+      "RelativePath": "css/HomePage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomePage.css"
     },
     {
       "Identity": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\wwwroot\\css\\Login.css",

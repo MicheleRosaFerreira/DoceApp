@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DoceApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\wwwroot\\css\\HomePage.css",
+      "PackagePath": "staticwebassets\\css\\HomePage.css"
+    },
+    {
       "Id": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\wwwroot\\css\\Login.css",
       "PackagePath": "staticwebassets\\css\\Login.css"
     },

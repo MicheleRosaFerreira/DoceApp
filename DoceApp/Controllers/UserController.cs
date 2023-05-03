@@ -63,8 +63,7 @@ namespace DoceApp.Controllers
 			{
 				_userService.Create(user);
 				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Usuário cadastrado com sucesso!");
-				return View(userRegister);
-				
+				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Verifique sua caixa de entrada para confirmação de e-mail");
 			}
 			    userRegister.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Verifique as informações e tente novamente!");
 				return View(userRegister);
@@ -72,9 +71,8 @@ namespace DoceApp.Controllers
 
 
 		//[HttpPost]
-		//public IActionResult MailMessage(EmailViewModel mail )
+		//public IActionResult MailMessage(EmailViewModel mail)
 		//{
-		//	LoginViewModel login = new LoginViewModel();
 		//	var verifyMail = UserEmail.FirstOrDefault(e => e.Email == mail.Email);
 
 		//	MailMessage mailMessage = new MailMessage($"{verifyMail.Email}", $"{verifyMail.Email}");
@@ -89,7 +87,7 @@ namespace DoceApp.Controllers
 		//	smtpClient.UseDefaultCredentials = false;
 		//	smtpClient.Credentials = new NetworkCredential($"{verifyMail.Email}", " "); //email e senha do email que vamos usar como remetente
 		//	smtpClient.EnableSsl = true; // vai criptografar o trafego ele oferece segurança de comunicação ao usuario quando acessarem ambiente virtual.
-		//    smtpClient.Send(mailMessage);
+		//	smtpClient.Send(mailMessage);
 		//	return View("Email", mail);
 
 

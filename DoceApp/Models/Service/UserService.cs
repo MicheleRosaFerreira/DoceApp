@@ -17,6 +17,7 @@ namespace DoceApp.Models.Service
 			_userRepository = userRepository;
 
 		}
+		
 		public User Create(User user)
 		{
 			user.Cpf = user.Cpf.Replace(".", "").Replace("-","");
@@ -26,15 +27,26 @@ namespace DoceApp.Models.Service
 		}
 
 		public string EncryptPassword(string password)
-		{
-			MD5 md5 = System.Security.Cryptography.MD5.Create();
-			byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(password);
-			byte[] hash = md5.ComputeHash(inputBytes);
-			
+		{  
+		    // Cria uma nova intância do objeto que implementa o algoritmo para
+		   // criptografia MD5
+			MD5 md5 = MD5.Create();
+
+			// Criptografa o valor passado
+			byte[] inputBytes = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
+
+			// Cria um StringBuilder para passarmos os bytes gerados para ele
 			StringBuilder sb = new StringBuilder();
-			for (int i = 0; i < hash.Length; i++)
+
+			// Converte cada byte em um valor hexadecimal e adiciona ao
+
+			// string builder
+
+			// and format each one as a hexadecimal string.
+
+			for (int i = 0; i < inputBytes.Length; i++)
 			{
-				sb.Append(hash[i].ToString("X2"));
+				sb.Append(inputBytes[i].ToString("X2"));
 			}
 			return sb.ToString();
 		}
