@@ -2,23 +2,24 @@
 using DoceApp.Models;
 using DoceApp.Models.Entidades;
 using DoceApp.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace DoceApp.Controllers
 {
-    public class UserController : Controller
+	public class UserController : Controller
 	{
 		private readonly ILoginService _loginService;
 
 		private readonly IUserService _userService;
-		public UserController(ILoginService loginService , IUserService userService)
+		public UserController(ILoginService loginService, IUserService userService)
 		{
 			_loginService = loginService;
 			_userService = userService;
 		}
-
+		Login auth = new Login();
 		public IActionResult Login()
 		{
 			return View();
@@ -31,7 +32,10 @@ namespace DoceApp.Controllers
 		{
 			return View();
 		}
-
+		[HttpGet]
+		[Route("authenticated")]
+		[Authorize]
+		public string Authenticated() => String.Format("Autenticado - {0}", auth.Nickname);
 		[HttpPost]
 		public IActionResult Login(LoginViewModel login)
 		{

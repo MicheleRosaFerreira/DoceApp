@@ -19,6 +19,7 @@ namespace DoceApp.Models.Security
 				Subject = new ClaimsIdentity(new Claim[]
 				{
 					new Claim(ClaimTypes.Name, user.Nickname.ToString()),
+					
 					//new Claim(ClaimTypes.Role, user.Role.ToString())
 				}),
 				Expires = DateTime.UtcNow.AddHours(1),

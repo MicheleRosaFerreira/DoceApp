@@ -10,7 +10,7 @@ namespace DoceApp.Interface
 {
     public interface ILoginRepository
 	{
-		Login GetLogin(string nickname);
+		Login GetLogin(string nickname, string password);
 		//ActionResult<Loginn> GetLoginNickname(string nickName);
 		
 	}
