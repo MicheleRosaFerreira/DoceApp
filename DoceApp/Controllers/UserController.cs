@@ -19,23 +19,10 @@ namespace DoceApp.Controllers
 			_loginService = loginService;
 			_userService = userService;
 		}
-		Login auth = new Login();
 		public IActionResult Login()
 		{
 			return View();
 		}
-		public IActionResult RegisterUser()
-		{
-			return View();
-		}
-		public IActionResult Email()
-		{
-			return View();
-		}
-		[HttpGet]
-		[Route("authenticated")]
-		[Authorize]
-		public string Authenticated() => String.Format("Autenticado - {0}", auth.Nickname);
 		[HttpPost]
 		public IActionResult Login(LoginViewModel login)
 		{
@@ -49,8 +36,12 @@ namespace DoceApp.Controllers
 			{
 				return RedirectToAction("Home", "HomePage");
 			}
-			login.ReturnMessage = new ToastrMessage("error","Falha ao efetuar login","Usuário ou senha incorretos");
+			login.ReturnMessage = new ToastrMessage("error", "Falha ao efetuar login", "Usuário ou senha incorretos");
 			return View(login);
+		}
+		public IActionResult RegisterUser()
+		{
+			return View();
 		}
 
 		[HttpPost]
@@ -62,16 +53,26 @@ namespace DoceApp.Controllers
 			}
 
 			var user = new User(userRegister);
-			
+
 			if (userRegister.Password == userRegister.ConfirmPassword)
 			{
 				_userService.Create(user);
 				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Usuário cadastrado com sucesso!");
 				userRegister.ReturnMessage = new ToastrMessage("sucess", " ", "Verifique sua caixa de entrada para confirmação de e-mail");
 			}
-			    userRegister.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Verifique as informações e tente novamente!");
-				return View(userRegister);
+			userRegister.ReturnMessage = new ToastrMessage("error", "Falha ao realizar cadastro ", "Verifique as informações e tente novamente!");
+			return View(userRegister);
 		}
+
+		public IActionResult Email()
+		{
+			return View();
+		}
+		
+		//[HttpGet]
+		//[Route("authenticated")]
+		//[Authorize]
+		//public string Authenticated() => String.Format("Autenticado - {0}", auth.Nickname);
 
 
 		//[HttpPost]

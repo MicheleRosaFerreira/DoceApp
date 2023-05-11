@@ -20,16 +20,10 @@ namespace DoceApp.Models.Service
 			_loginRepository = loginRepository;
 		}
 		// Não pode existir um usuário repetido no banco de dados e, o nome de usuário não pode ser maior que 11.
-		public dynamic GetLogin(Login login)
+		public Login GetLogin(Login login)
 		{
-			var getUser = _loginRepository.GetLogin(login.Nickname, login.Password);
-			var token = TokenService.GenerateToken(login);
-
-			return new
-			{
-				login = login,
-				token = token,
-			};
+			var getUser = _loginRepository.GetLogin(login.Nickname);
+			return getUser;
 		}
 	}
 }
