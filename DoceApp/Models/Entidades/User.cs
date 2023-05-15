@@ -23,7 +23,7 @@ namespace DoceApp.Models.Entidades
 			Cpf = cpf;
 			Birthdate = bithdate;
 			Email = email;
-			userLogin = new Login(nickName, password);
+			userLogin = new Login(nickName,password);
 		}
 		public User(UserViewModel userViewModel)
 		{

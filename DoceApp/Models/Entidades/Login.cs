@@ -1,4 +1,5 @@
-﻿using Microsoft.SharePoint.Client;
+﻿using DoceApp.Models.Interfaces;
+using Microsoft.SharePoint.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,33 +14,22 @@ namespace DoceApp.Models.Entidades
     {
         [Key]
         public int User_Login_Id { get; set; }
-        [ForeignKey("USER")]
         public int User_Id { get; set; }
-
-        [Required(ErrorMessage = "Campo obrigatório.")]
-        [DisplayName("Nome de usuário")]
         public string Nickname { get; set; }
+        public string Password { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório.")]
-        [DisplayName("Digite a sua senha")]
-        [JsonIgnore]//impede que a propriedade de senha seja serializada e retornada em respostas de API.
+        public User users { get; set; }
 
-		public string Password { get; set; }
+        //public bool AdminUser { get; set; }
 
-		public User users { get; set; }
+        public Login()
+        {
 
-		//public bool AdminUser { get; set; }
-
-		public Login()
-		{
-
-		}
-        public Login(string nickname,string password)
+        }
+        public Login(string nickname, string password)
         {
             Nickname = nickname;
             Password = password;
         }
-
-
-	}
+    }
 }

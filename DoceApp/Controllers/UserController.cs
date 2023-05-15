@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace DoceApp.Controllers
 {
-	public class UserController : Controller
+    public class UserController : Controller
 	{
 		private readonly ILoginService _loginService;
 
@@ -30,14 +30,23 @@ namespace DoceApp.Controllers
 			{
 				return View(login);
 			}
-			var verifyUser = _loginService.GetLogin(login);
+			var loginUser = new Login(login.Nickname,login.Password);
+			var verifyUser = _loginService.GetLogin(loginUser);
 
 			if (verifyUser != null && verifyUser.Password == login.Password)
 			{
-				return RedirectToAction("Home", "HomePage");
+				return RedirectToAction("Home", "User");
 			}
-			login.ReturnMessage = new ToastrMessage("error", "Falha ao efetuar login", "Usuário ou senha incorretos");
-			return View(login);
+
+			else
+			{
+				login.ReturnMessage = new ToastrMessage("error", "Falha ao efetuar login", "Usuário ou senha incorretos");
+				return View(login);
+			}
+		}
+		public IActionResult Home()
+		{
+			return View();
 		}
 		public IActionResult RegisterUser()
 		{
