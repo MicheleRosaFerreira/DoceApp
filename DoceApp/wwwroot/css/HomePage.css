@@ -3,17 +3,37 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.flex-box{
-    width:100vw;
-    height:100vh;
-    display:flex;
-    justify-content:center;
+.title {
+  text-align: center;
+  margin-top:250px;
+}
 
+.departaments-header-box {
 }
-.flex-box-child {
-    display: block;
-    font-size: 1.5em;
-    margin-top:15rem ;
-    font-weight: bold;
-    color: palevioletred;
+
+.departaments-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    gap:25px;
 }
+
+.departaments-box-child {
+    width: 300px;
+    height: 300px;
+    border: 1px solid;
+    border-radius: 50%;
+    text-align: center;
+    background-color:brown;
+    font-size: large;
+    color: white;
+   
+}
+
+.departament-icon {
+    width: 50%;
+    height: 50%;
+    margin-top: 10%;
+}
+

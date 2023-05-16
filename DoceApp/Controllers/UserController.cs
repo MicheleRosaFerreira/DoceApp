@@ -35,7 +35,7 @@ namespace DoceApp.Controllers
 
 			if (verifyUser != null && verifyUser.Password == login.Password)
 			{
-				return RedirectToAction("Home", "User");
+				return RedirectToAction("Home", "Home");
 			}
 
 			else
@@ -44,10 +44,7 @@ namespace DoceApp.Controllers
 				return View(login);
 			}
 		}
-		public IActionResult Home()
-		{
-			return View();
-		}
+		
 		public IActionResult RegisterUser()
 		{
 			return View();
