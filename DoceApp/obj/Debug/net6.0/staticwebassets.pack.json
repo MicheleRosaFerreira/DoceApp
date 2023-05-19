@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
     {
+      "Id": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\wwwroot\\css\\Menu.css",
+      "PackagePath": "staticwebassets\\css\\Menu.css"
+    },
+    {
       "Id": "C:\\Users\\michele.ferreira\\source\\repos\\ProjetoDoceApp\\DoceApp\\DoceApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

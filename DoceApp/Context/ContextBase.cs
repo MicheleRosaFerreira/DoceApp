@@ -17,6 +17,7 @@ namespace DoceApp.Context
 		}
 		public DbSet<Login> Login { get; set; }
 		public DbSet<User> User { get; set; }
+		public DbSet<Departament> Departament { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			if (!optionsBuilder.IsConfigured)
@@ -31,7 +32,6 @@ namespace DoceApp.Context
 				modelBuilder.Entity<Login>().HasKey(i => i.User_Login_Id);
 				modelBuilder.Entity<Login>().Property(p => p.Nickname).IsRequired();
 				modelBuilder.Entity<Login>().Property(p => p.Password).IsRequired();
-
 			});
 			modelBuilder.Entity<User>(e =>
 			{
@@ -45,7 +45,12 @@ namespace DoceApp.Context
 				.WithOne(u => u.users)
 				.HasForeignKey<Login>(e => e.User_Id);
 			});
-
+			modelBuilder.Entity<Departament>(e =>
+			{
+				modelBuilder.Entity<Departament>().HasKey(i => i.DPM_Id);
+				modelBuilder.Entity<Departament>().Property(p => p.Name).IsRequired();
+				modelBuilder.Entity<Departament>().Property(p => p.Icon).IsRequired();
+			});
 
 		}
 	}

@@ -25,6 +25,8 @@ builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IDepartamentService, DepartamentService>();
+builder.Services.AddScoped<IDepartamentRepository, DepartamentRepository>();
 
 builder.Services.AddMvc();
 builder.Services.AddSession(options =>
