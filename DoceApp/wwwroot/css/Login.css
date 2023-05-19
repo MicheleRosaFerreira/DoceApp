@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url("https://img.freepik.com/vetores-gratis/fundo-de-dia-mundial-do-chocolate-em-aquarela-com-doces-de-chocolate_23-2149441176.jpg");
+    background-image: url("https://i.pinimg.com/736x/3e/b6/bf/3eb6bfca7de57e8948e2ac200533cecb.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -58,3 +58,8 @@
 .flex-box-child p {
     text-align: right;
 }
+/*.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
