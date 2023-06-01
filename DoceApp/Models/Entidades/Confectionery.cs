@@ -10,22 +10,23 @@ namespace DoceApp.Models.Entidades
     public class Confectionery
     {
         public int Id { get;  set; }
+		public int Departament_Id { get; set; }
         public string Name { get;  set; }
-		public double Price { get;  set; }
-		public double Weight { get;  set; }
-		public string Filling { get;  set; }
-		public string Ingredients { get;  set; }
-		public string Description { get;  set; }
+		public decimal Price { get; set; }
+		public string Description { get; set; }
+		public string Weight { get; set; }
+		public string Link { get; set; }
+		public Departament departament { get; set; }
 
-		public Confectionery(int id, string name, double price, double weight, string filling, string ingredients, string description)
+		public Confectionery(string name,decimal price, string description)
 		{
-			Id = id;
 			Name = name;
 			Price = price;
-			Weight = weight;
-			Filling = filling;
-			Ingredients = ingredients;
 			Description = description;
+		}
+		public Confectionery(int id)
+		{
+			Departament_Id= id;
 		}
 	}
 }

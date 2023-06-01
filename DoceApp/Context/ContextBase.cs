@@ -18,6 +18,7 @@ namespace DoceApp.Context
 		public DbSet<Login> Login { get; set; }
 		public DbSet<User> User { get; set; }
 		public DbSet<Departament> Departament { get; set; }
+		public DbSet<Confectionery> Confectionery { get; set; }	
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			if (!optionsBuilder.IsConfigured)
@@ -47,11 +48,22 @@ namespace DoceApp.Context
 			});
 			modelBuilder.Entity<Departament>(e =>
 			{
-				modelBuilder.Entity<Departament>().HasKey(i => i.DPM_Id);
+				modelBuilder.Entity<Departament>().HasKey(i => i.Id);
 				modelBuilder.Entity<Departament>().Property(p => p.Name).IsRequired();
 				modelBuilder.Entity<Departament>().Property(p => p.Icon).IsRequired();
 			});
 
+			modelBuilder.Entity<Confectionery>().HasKey(i => i.Id);
+			modelBuilder.Entity<Confectionery>().Property(p => p.Name).IsRequired();
+			modelBuilder.Entity<Confectionery>().Property(p => p.Price).IsRequired();
+			modelBuilder.Entity<Confectionery>().Property(p => p.Description).IsRequired();
+			modelBuilder.Entity<Confectionery>().Property(p => p.Weight).IsRequired();
+			modelBuilder.Entity<Confectionery>().Property(p => p.Link).IsRequired();
+
+			modelBuilder.Entity<Confectionery>()
+			.HasOne<Departament>(d => d.departament)
+			.WithOne(d => d.confectionery)
+			.HasForeignKey<Departament>(d => d.Id);
 		}
 	}
 }

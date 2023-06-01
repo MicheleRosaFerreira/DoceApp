@@ -27,6 +27,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IDepartamentService, DepartamentService>();
 builder.Services.AddScoped<IDepartamentRepository, DepartamentRepository>();
+builder.Services.AddScoped<IConfectioneryRepository, ConfectioneryRepository>();
+builder.Services.AddScoped<IConfectioneryService, ConfectioneryService>();
 
 builder.Services.AddMvc();
 builder.Services.AddSession(options =>

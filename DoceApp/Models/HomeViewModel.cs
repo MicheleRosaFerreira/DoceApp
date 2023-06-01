@@ -5,8 +5,8 @@ namespace DoceApp.Models
 	public class HomeViewModel
 	{
 		public List<Departament> Departaments { get; set; }
-		
-		public HomeViewModel()
+
+        public HomeViewModel()
 		{
 			Departaments = new List<Departament>();
 		}
@@ -14,6 +14,8 @@ namespace DoceApp.Models
 		public HomeViewModel(List<Departament> departaments)
 		{
 			Departaments = departaments;
+			
 		}
+	
 	}
 }

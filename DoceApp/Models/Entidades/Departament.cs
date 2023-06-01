@@ -2,9 +2,10 @@
 {
 	public class Departament
 	{
-		public int DPM_Id { get; set; }
+		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Icon { get; set; }
+		public Confectionery confectionery 	{get;set;}
 		public Departament()
 		{
 			Name= string.Empty;

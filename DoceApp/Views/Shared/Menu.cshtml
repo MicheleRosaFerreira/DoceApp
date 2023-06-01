@@ -1,5 +1,24 @@
-﻿@{
+﻿@model MenuViewModel
+@{
     ViewData["Title"] = "Menu";
     Layout = "_Layout";
 }
+<link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
 
+<div class="Menu-Cakes">
+    <h2>Cardápio</h2>
+    <div class="row container">
+        <div class="col s12 m6 l6">
+         @foreach(var confectionery in Model.Confectioneries)
+		{
+			<div class ="departaments-box-child">
+				<img class="departament-icon" src="@confectionery.Link"; >
+				<p title="@confectionery.Name">@confectionery.Name</p>
+			</div>
+		}
+        <div/>
+    </div>
+ 
+
+    </div>
+</div>

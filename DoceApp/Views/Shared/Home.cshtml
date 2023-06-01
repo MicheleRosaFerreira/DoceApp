@@ -14,10 +14,10 @@
 	<div class="departaments-box">
 		@foreach(var departament in Model.Departaments)
 		{
-			<div class ="departaments-box-child">
+			<div class ="departaments-box-child" @Url.Action("Menu","Menu")>
 				<img class="departament-icon" src="@departament.Icon"; >
 				<p title="@departament.Name">@departament.Name</p>
-				@*<a href="@Url.Action("RegisterUser", "User")"></a>*@
+				<a href="@Url.Action("Menu", "Menu")"></a>
 			</div>
 		}
 	</div>
