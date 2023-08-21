@@ -14,12 +14,14 @@ namespace DoceApp.Controllers
 			_confectioneryService = confectioneryService;
 		}
 
-		public IActionResult Menu()
-		{
-			var confectioneryId = new List<Confectionery>();
-			var confectionery = _confectioneryService.GetConfectionery);
-			var homeviewConfectionery = new MenuViewModel(confectionery);
-			return View(homeviewConfectionery);
-		}
+
+
+		//public IActionResult Menu()
+		//{
+		//	var confectioneryId = new List<Confectionery>();
+		//	//var confectionery = _confectioneryService.GetConfectionery);
+		//	//var homeviewConfectionery = new MenuViewModel(confectionery);
+		//	//return View(homeviewConfectionery);
+		//}
 	}
 }

@@ -19,7 +19,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var con = builder.Configuration.GetConnectionString("DoceApp");
-builder.Services.AddDbContext<ContextBase>(options => options.UseSqlServer(con));
+var context = new ContextBase();
+builder.Services.AddDbContext<ContextBase>(options =>options.UseMySql(con,context.ServerVersion));
 
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<ILoginService, LoginService>();

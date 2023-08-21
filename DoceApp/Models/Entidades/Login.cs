@@ -9,14 +9,14 @@ using System.Text.Json.Serialization;
 
 namespace DoceApp.Models.Entidades
 {
-    [Table("LOGIN")]
+    //[Table("LOGIN")]
     public class Login
     {
         [Key]
         public int User_Login_Id { get; set; }
-        public int User_Id { get; set; }
+        public User User_Id { get; set; }
         public string Nickname { get; set; }
-        public string Password { get; set; }
+        public string PasswordUser { get; set; }
 
         public User users { get; set; }
 
@@ -29,7 +29,7 @@ namespace DoceApp.Models.Entidades
         public Login(string nickname, string password)
         {
             Nickname = nickname;
-            Password = password;
+            PasswordUser = password;
         }
     }
 }

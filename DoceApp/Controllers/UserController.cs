@@ -33,7 +33,7 @@ namespace DoceApp.Controllers
 			var loginUser = new Login(login.Nickname,login.Password);
 			var verifyUser = _loginService.GetLogin(loginUser);
 
-			if (verifyUser != null && verifyUser.Password == login.Password)
+			if (verifyUser != null && verifyUser.PasswordUser == login.Password)
 			{
 				return RedirectToAction("Home", "Home");
 			}

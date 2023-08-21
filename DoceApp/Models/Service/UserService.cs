@@ -21,7 +21,7 @@ namespace DoceApp.Models.Service
 		public User Create(User user)
 		{
 			user.Cpf = user.Cpf.Replace(".", "").Replace("-","");
-			user.userLogin.Password = EncryptPassword(user.userLogin.Password);
+			user.userLogin.PasswordUser = EncryptPassword(user.userLogin.PasswordUser);
 			_userRepository.Create(user);
 			return user;
 		}

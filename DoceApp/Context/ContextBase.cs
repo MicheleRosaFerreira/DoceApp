@@ -8,22 +8,25 @@ namespace DoceApp.Context
 	{
 		public ContextBase()
 		{
-
+			ServerVersion = new MySqlServerVersion(new Version(5, 7, 23));
 		}
 
 		public ContextBase(DbContextOptions<ContextBase> options) : base(options)
 		{
-
+		
 		}
+
 		public DbSet<Login> Login { get; set; }
-		public DbSet<User> User { get; set; }
+		public DbSet<User> Users { get; set; }
 		public DbSet<Departament> Departament { get; set; }
-		public DbSet<Confectionery> Confectionery { get; set; }	
+		public DbSet<Confectionery> Confectionery { get; set; }
+        public MySqlServerVersion ServerVersion { get; set; }
+
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			if (!optionsBuilder.IsConfigured)
 			{
-				optionsBuilder.UseSqlServer("DoceApp");
+				optionsBuilder.UseMySql(connectionString:"DoceApp", ServerVersion);
 			}
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,7 +35,7 @@ namespace DoceApp.Context
 			{
 				modelBuilder.Entity<Login>().HasKey(i => i.User_Login_Id);
 				modelBuilder.Entity<Login>().Property(p => p.Nickname).IsRequired();
-				modelBuilder.Entity<Login>().Property(p => p.Password).IsRequired();
+				modelBuilder.Entity<Login>().Property(p => p.PasswordUser).IsRequired();
 			});
 			modelBuilder.Entity<User>(e =>
 			{
